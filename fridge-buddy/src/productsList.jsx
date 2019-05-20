@@ -3,24 +3,7 @@ import axios from 'axios';
 import ProductItem from './productItem.jsx';
 
 class ProductsList extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {products: []};
-  }
-
-  componentDidMount() {
-    this.listAllProducts();
-  }
-
-  listAllProducts() {
-    axios.get("https://localhost:5001/products")
-    .then(res => {
-      const products = res.data; // use debugger to check how the res looks like
-      this.setState({ products });
-    });
-  }
-
+  
   render() {
     return (
       <table className="class">
@@ -34,7 +17,7 @@ class ProductsList extends Component {
           </tr>
         </thead>
         <tbody>
-          {this.state.products.map(product => (
+          {this.props.products.map(product => (
             <ProductItem 
               key={product.productId} 
               barcode={product.barcode}
