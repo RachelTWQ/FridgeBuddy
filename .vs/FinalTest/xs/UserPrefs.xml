@@ -1,31 +1,28 @@
 ﻿<Properties StartupConfiguration="{48C85A22-CF7C-472D-950F-4CAB529BB560}|Default">
   <MonoDevelop.Ide.ItemProperties.FinalTest PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FinalTest/RequestModels/NewProductRequest.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FinalTest/Controllers/ProductsController.cs">
     <Files>
-      <File FileName="FinalTest/Program.cs" Line="17" Column="1" />
-      <File FileName="FinalTest/Startup.cs" Line="24" Column="23" />
-      <File FileName="FinalTest/appsettings.json" Line="10" Column="22" />
-      <File FileName="FinalTest/appsettings.Development.json" Line="1" Column="1" />
-      <File FileName="FinalTest/Controllers/ValuesController.cs" Line="11" Column="51" />
-      <File FileName="FinalTest/Controllers/ProductsController.cs" Line="40" Column="47" />
-      <File FileName="FinalTest/FbContext.cs" Line="8" Column="6" />
-      <File FileName="FinalTest/Models/Product.cs" Line="13" Column="9" />
-      <File FileName="FinalTest/Models/Users.cs" Line="6" Column="26" />
-      <File FileName="FinalTest/RequestModels/NewProductRequest.cs" Line="4" Column="35" />
+      <File FileName="FinalTest/Controllers/ProductsController.cs" Line="94" Column="10" />
+      <File FileName="FinalTest/FbContext.cs" Line="14" Column="49" />
+      <File FileName="FinalTest/Models/Notification.cs" Line="21" Column="1" />
+      <File FileName="FinalTest/Models/Product.cs" Line="11" Column="2" />
+      <File FileName="FinalTest/Models/User.cs" Line="13" Column="1" />
+      <File FileName="FinalTest/RequestModels/NewProductRequest.cs" Line="10" Column="45" />
       <File FileName="FinalTest/Properties/launchSettings.json" Line="24" Column="49" />
+      <File FileName="FinalTest/RequestModels/UpdateProductRequest.cs" Line="11" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="FinalTest" expanded="True">
             <Node name="FinalTest" expanded="True">
-              <Node name="Controllers" expanded="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="ProductsController.cs" selected="True" />
+              </Node>
               <Node name="Migrations" expanded="True" />
               <Node name="Models" expanded="True" />
               <Node name="Properties" expanded="True" />
-              <Node name="RequestModels" expanded="True">
-                <Node name="NewProductRequest.cs" selected="True" />
-              </Node>
+              <Node name="RequestModels" expanded="True" />
             </Node>
           </Node>
         </State>

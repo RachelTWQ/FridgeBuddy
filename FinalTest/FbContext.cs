@@ -11,8 +11,8 @@ namespace FinalTest
         {
         }
 
+        public DbSet<Notification> Notifications { get; set; }
+        public DbSet<User> Users { get; set; }
         public DbSet<Product> Products { get; set; }
-        public DbSet<Users> Users { get; set; }
-
     }
 }

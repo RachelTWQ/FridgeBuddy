@@ -19,12 +19,10 @@ namespace FinalTest.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("FinalTest.Models.Product", b =>
+            modelBuilder.Entity("FinalTest.Models.Notification", b =>
                 {
-                    b.Property<Guid>("ProductId")
+                    b.Property<Guid>("NotificationId")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Barcode");
 
                     b.Property<DateTime?>("EntryDate");
 
@@ -32,36 +30,63 @@ namespace FinalTest.Migrations
 
                     b.Property<bool>("IsEaten");
 
-                    b.Property<string>("ProductName");
+                    b.Property<string>("Note");
+
+                    b.Property<Guid>("ProductId");
 
                     b.Property<Guid?>("UserId");
 
-                    b.HasKey("ProductId");
+                    b.HasKey("NotificationId");
+
+                    b.HasIndex("ProductId");
 
                     b.HasIndex("UserId");
+
+                    b.ToTable("Notifications");
+                });
+
+            modelBuilder.Entity("FinalTest.Models.Product", b =>
+                {
+                    b.Property<Guid>("ProductId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Barcode");
+
+                    b.Property<string>("Category");
+
+                    b.Property<string>("ProductName");
+
+                    b.HasKey("ProductId");
 
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("FinalTest.Models.Users", b =>
+            modelBuilder.Entity("FinalTest.Models.User", b =>
                 {
-                    b.Property<Guid>("UsersId")
+                    b.Property<Guid>("UserId")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Email");
 
                     b.Property<string>("Name");
 
+                    b.Property<string>("Password");
+
                     b.Property<string>("PhoneNumber");
 
-                    b.HasKey("UsersId");
+                    b.HasKey("UserId");
 
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("FinalTest.Models.Product", b =>
+            modelBuilder.Entity("FinalTest.Models.Notification", b =>
                 {
-                    b.HasOne("FinalTest.Models.Users", "User")
+                    b.HasOne("FinalTest.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("FinalTest.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
                 });
