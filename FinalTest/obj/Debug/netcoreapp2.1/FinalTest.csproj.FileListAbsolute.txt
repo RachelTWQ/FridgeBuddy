@@ -17,7 +17,6 @@
 /Users/Izumi/lighthouse/FinalTest/FinalTest/bin/Debug/netcoreapp2.1/FinalTest.runtimeconfig.dev.json
 /Users/Izumi/lighthouse/FinalTest/FinalTest/bin/Debug/netcoreapp2.1/FinalTest.dll
 /Users/Izumi/lighthouse/FinalTest/FinalTest/bin/Debug/netcoreapp2.1/FinalTest.pdb
-/Users/Izumi/lighthouse/FinalTest/FinalTest/obj/Debug/netcoreapp2.1/FinalTest.csprojAssemblyReference.cache
 /Users/Izumi/lighthouse/FinalTest/FinalTest/obj/Debug/netcoreapp2.1/FinalTest.csproj.CoreCompileInputs.cache
 /Users/Izumi/lighthouse/FinalTest/FinalTest/obj/Debug/netcoreapp2.1/FinalTest.RazorAssemblyInfo.cache
 /Users/Izumi/lighthouse/FinalTest/FinalTest/obj/Debug/netcoreapp2.1/FinalTest.RazorAssemblyInfo.cs
@@ -26,3 +25,4 @@
 /Users/Izumi/lighthouse/FinalTest/FinalTest/obj/Debug/netcoreapp2.1/FinalTest.RazorTargetAssemblyInfo.cache
 /Users/Izumi/lighthouse/FinalTest/FinalTest/obj/Debug/netcoreapp2.1/FinalTest.dll
 /Users/Izumi/lighthouse/FinalTest/FinalTest/obj/Debug/netcoreapp2.1/FinalTest.pdb
+/Users/Izumi/lighthouse/FinalTest/FinalTest/obj/Debug/netcoreapp2.1/FinalTest.csprojAssemblyReference.cache

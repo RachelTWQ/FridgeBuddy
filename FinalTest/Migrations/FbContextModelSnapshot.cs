@@ -56,7 +56,11 @@ namespace FinalTest.Migrations
 
                     b.Property<string>("ProductName");
 
+                    b.Property<Guid?>("UserId");
+
                     b.HasKey("ProductId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Products");
                 });
@@ -86,6 +90,13 @@ namespace FinalTest.Migrations
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade);
 
+                    b.HasOne("FinalTest.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("FinalTest.Models.Product", b =>
+                {
                     b.HasOne("FinalTest.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId");

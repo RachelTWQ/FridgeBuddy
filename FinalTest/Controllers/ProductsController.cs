@@ -43,10 +43,10 @@ namespace FinalTest.Controllers
         }
 
         // update particular product info Put or get???
-        [HttpPut, Route("/products/{productId}")]
-        public IActionResult UpdateProductCategoryById(Guid productId, [FromBody] UpdateProductRequest incomingInfo)
+        [HttpPut, Route("{userId}/products/{productId}")]
+        public IActionResult UpdateProductCategoryById(Guid userId, Guid productId, [FromBody] UpdateProductRequest incomingInfo)
         {
-            Product product = _context.Products.FirstOrDefault(x => x.ProductId == productId);
+            Product product = _context.Products.FirstOrDefault(x => x.ProductId == productId && x.UserId == userId);
             if (incomingInfo.ProductName != "")
             {
                 product.ProductName = incomingInfo.ProductName;

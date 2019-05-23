@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 
+
 namespace FinalTest.Controllers
 {
     [EnableCors("default")] // Add this line to all controller
@@ -22,11 +23,12 @@ namespace FinalTest.Controllers
         }
 
         // display all non-isEaten products from the user 
-        [HttpGet, Route("/{userId}/notifications/")]
+        [HttpGet, Route("/{userId}/notifications")]
         public IActionResult GetUserNotifications(Guid userId)
         {
             List<Notification> notifcations = _context.Notifications.Include(x => x.Product).Include(x => x.User).Where(x => x.UserId == userId && x.IsEaten == false).ToList();
             return Ok(notifcations);
+
         }
 
         // this is to save the notification after scanning. whether we found it or not. we create product here as well.
@@ -75,8 +77,16 @@ namespace FinalTest.Controllers
             _context.Notifications.Update(notifcation);
             _context.SaveChanges();
 
-            return Ok();
+            return Ok(notifcation);
         }
+
+        // helper function to find uneaten stuff from userId
+        private Array FindIsEatenItem(Guid userId)
+        {
+            Array result = _context.Notifications.Where(x => x.IsEaten == false && x.UserId == userId).ToArray();
+            return result;
+        }
+
 
     }
 }

@@ -3,8 +3,7 @@ namespace FinalTest.RequestModels
 {
     public class LoginRequest
     {
-        public LoginRequest()
-        {
-        }
+        public string Email { get; set; }
+        public string Password { get; set; }
     }
 }

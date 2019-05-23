@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 using FinalTest.Models;
 using FinalTest.RequestModels;
@@ -20,18 +22,94 @@ namespace FinalTest.Controllers
         {
             _context = context;
         }
-        // ??? React component
-        [HttpGet, Route("/register")]
-        public IActionResult GetUserForm()
-        {
-            return Ok();
-        }
 
         [HttpPost, Route("/register")]
-        public IActionResult CreateUser()
+        public IActionResult CreateUser([FromBody] RegisterRequest userInfo)
         {
-            User newUser = new User();
+            var UserId = Guid.NewGuid();
+            if (userInfo.Password == userInfo.PasswordRepeat)
+            {
+
+                User newUser = new User();
+                newUser.UserId = UserId;
+                newUser.Name = userInfo.Name;
+                newUser.Email = userInfo.Email;
+                newUser.PhoneNumber = userInfo.PhoneNumber;
+
+                //Hash password
+                var md5 = new MD5CryptoServiceProvider();
+
+                ///first we convert the text to bytes first
+                var bytePassword = Encoding.ASCII.GetBytes(userInfo.Password);
+
+                //this is the hash password
+                var newHashPassword = md5.ComputeHash(bytePassword);
+
+
+                //apparently we need to do this to convert to a properly string
+
+                // save
+                newUser.Password = HashString(newHashPassword);
+
+                _context.Users.Add(newUser);
+                _context.SaveChanges();
+
+            }
+            else
+            {
+                return StatusCode(400); //bad request
+            }
+            // fetch back the created user info
+            var user = _context.Users.First(x => x.UserId == UserId);
+            return Ok(user);
+        }
+
+        // this is a function that convert an array of bytes into a string of hex values
+        private string HashString(byte[] byteArray)
+        {
+            StringBuilder builder = new StringBuilder();
+            foreach(byte t in byteArray)
+            {
+                // the X2 converts each btye into a hex value;
+                builder.Append(t.ToString("x2"));
+            }
+
+            return builder.ToString();
+        }
+
+        [HttpPut, Route("/login")]
+        public IActionResult Login([FromBody] LoginRequest loginInfo)
+        {
+            //Hash password
+            var md5 = new MD5CryptoServiceProvider();
+
+            ///first we convert the text to bytes first
+            var bytePassword = Encoding.ASCII.GetBytes(loginInfo.Password);
+
+            //this is the hash password
+            var newHashPassword = md5.ComputeHash(bytePassword);
+
+            //convert back to string 
+            var hashPasswordString = HashString(newHashPassword);
+
+            // use this passwordString to find user
+            var user = _context.Users.FirstOrDefault(x => x.Email == loginInfo.Email && x.Password == hashPasswordString);
+            if (user == null)
+                return StatusCode(401); //fail to authenicate
+
+            // add user.userId to session
+
+            //return something without the password lolol.
+            return Ok(user);
+        }
+
+        [HttpPost, Route("/logout")]
+        public IActionResult Logout()
+        {
             return Ok();
         }
     }
+
 }
+
+
