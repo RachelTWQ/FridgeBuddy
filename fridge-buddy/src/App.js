@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
+import Login from './Login.jsx';
 import ProductsList from './productsList.jsx';
 import ProductForm from './productForm.jsx';
+
 
 class App extends Component() {
   constructor(props) {
