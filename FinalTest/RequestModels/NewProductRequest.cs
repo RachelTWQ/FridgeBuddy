@@ -9,5 +9,6 @@ namespace FinalTest.RequestModels
         public string Barcode { get; set; }
         public string Category { get; set; }
         public int ReservedDays { get; set; } // When to remind use
+        public string Note { get; set; }
     }
 }

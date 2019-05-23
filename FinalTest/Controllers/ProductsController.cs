@@ -34,52 +34,6 @@ namespace FinalTest.Controllers
             return Ok(products);
         }
 
-        [HttpGet, Route("/{userId}/notifications/")]
-        public IActionResult GetUserNotifications(Guid userId)
-        {
-            //access data base with awesome EF
-
-            // grab products
-            List<Notification> notifcations = _context.Notifications.Include(x => x.Product).Include(x => x.User).Where(x => x.UserId == userId && x.IsEaten == false).ToList();
-            return Ok(notifcations);
-        }
-
-        // this is to save the notification after scanning. whether we found it or not. we create product here as well.
-        [HttpPut, Route("/{userId}/notifications")]
-        public IActionResult InsertOrUpdate(Guid userId, [FromBody] NewProductRequest incomingProduct) // [FromBody] tag is a must to clarify
-        {
-            var productId = Guid.NewGuid();
-            if (incomingProduct.newProduct)
-            {
-                var newProduct = new Product();
-                newProduct.ProductId = productId;
-                newProduct.Barcode = incomingProduct.Barcode;
-                newProduct.Category = incomingProduct.Category;
-                newProduct.ProductName = incomingProduct.ProductName;
-                _context.Products.Add(newProduct);
-            }
-            else if(incomingProduct.productId != null)
-            {
-                productId = incomingProduct.productId.Value;
-            }
-            else
-            {
-                productId = _context.Products.Where(x => x.ProductName == incomingProduct.ProductName).First().ProductId;
-            }
-
-            Notification notifcation = new Notification();
-            notifcation.NotificationId = new Guid();
-            notifcation.ProductId = productId;
-            notifcation.UserId = userId;
-            notifcation.EntryDate = DateTime.Now;
-            notifcation.ExpiryDate = DateTime.Now.AddDays(incomingProduct.ReservedDays);
-            notifcation.IsEaten = false;
-            notifcation.Note = "Remebeber to use chocolate dip before eating!Remember to buy more!";
-            _context.Notifications.Add(notifcation);
-            _context.SaveChanges();
-
-            return Ok();
-        }
         // scan to find product with barcode in product table
         [HttpGet, Route ("/{userId}/product/{barcode}")]
         public IActionResult FindProductByBarcode(Guid userId, string barcode)
@@ -88,13 +42,20 @@ namespace FinalTest.Controllers
             return Ok(product);
         }
 
-        // update particular product info 
-        [HttpGet, Route("/products/{productId}")]
+        // update particular product info Put or get???
+        [HttpPut, Route("/products/{productId}")]
         public IActionResult UpdateProductCategoryById(Guid productId, [FromBody] UpdateProductRequest incomingInfo)
         {
             Product product = _context.Products.FirstOrDefault(x => x.ProductId == productId);
-            product.ProductName = incomingInfo.ProductName;
-            product.Category = incomingInfo.Category;
+            if (incomingInfo.ProductName != "")
+            {
+                product.ProductName = incomingInfo.ProductName;
+            }
+            if (incomingInfo.Category != "")
+            {
+                product.Category = incomingInfo.Category;
+            }
+               
             _context.Products.Update(product);
             _context.SaveChanges();
 
