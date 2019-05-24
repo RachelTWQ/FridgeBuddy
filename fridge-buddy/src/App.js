@@ -7,11 +7,19 @@ import Register from './Register.jsx';
 // import ProductForm from './productForm.jsx';
 import axios from 'axios';
 
-function Home() {
+function Home({user}) {
   return (
     <div>
       <h2>Home</h2>
+      <p>{user.name}</p>
     </div>
+  );
+}
+
+function Logout({handleLogout}) {
+  return (
+    <button onClick={handleLogout}>Logout</button>
+    
   );
 }
 
@@ -24,6 +32,7 @@ class App extends Component {
       // newProduct: {},
       // products: [] 
     };
+    this.handleLogout = this.handleLogout.bind(this);
   }
 
   // componentDidMount() {
@@ -37,16 +46,17 @@ class App extends Component {
       Email: event.target.email.value,
       Password: event.target.password.value
     }
-    console.log(loginInfo);
+    console.log("loginInfo", loginInfo);
 
-    // axios.put("https://localhost:5001/login", loginInfo)
-    // .then(res => {
-    //   const user = res.data;
-    //   this.setState({ user })
-    // })
-    // .catch(function (error) {
-    //   console.log(error);
-    // });
+    axios.put("https://localhost:5001/login", loginInfo)
+    .then(res => {
+      const user = res.data;
+      console.log("user", user);
+      this.setState({user});
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
 
   //{Name: "izumi",Email: "izumi@izumi.com",Password: "password",PasswordRepeat: "password",PhoneNumber :"1234"}
@@ -59,20 +69,21 @@ class App extends Component {
       PasswordRepeat: event.target.passwordRepeat.value,
       PhoneNumber: event.target.phoneNumber.value
     }
-    console.log(registerInfo);
+    console.log("registerInfo", registerInfo);
 
-    // axios.post("https://localhost:5001/register", registerInfo)
-    // .then(res => {
-    //   const user = res.data;
-    //   this.setState({ user })
-    // })
-    // .catch(function (error) {
-    //   console.log(error);
-    // });
+    axios.post("https://localhost:5001/register", registerInfo)
+    .then(res => {
+      const user = res.data;
+      this.setState({ user })
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
 
   handleLogout() {
     this.setState({ user: {} });
+    console.log("done")
   }
 
   // listAllProducts() {
@@ -110,12 +121,16 @@ class App extends Component {
             <li>
               <Link to="/login">Login</Link>
             </li>
+            <li>
+              <Link to="/logout">Logout</Link>
+            </li>
           </ul>
 
           <hr />
-          <Route path="/" component={ Home } />
+          <Route exact path="/" component={() => <Home user={this.state.user}/>} />
           <Route path="/register" component={() => <Register handleRegister={this.handleRegister}/>} />
           <Route path="/login" component={() => <Login handleLogin={this.handleLogin}/>} />
+          <Route path="/logout" component={() => <Logout handleLogout={this.handleLogout}/>} />
         </div>
 
       </Router>
