@@ -74,6 +74,7 @@ class App extends Component {
     axios.post("https://localhost:5001/register", registerInfo)
     .then(res => {
       const user = res.data;
+      window.localStorage.setItem('user', JSON.stringify(user));
       this.setState({ user })
     })
     .catch(function (error) {
