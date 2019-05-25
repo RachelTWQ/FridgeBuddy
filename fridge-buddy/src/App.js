@@ -26,9 +26,8 @@ function Logout({handleLogout}) {
 class App extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      user: {},
+      user: window.localStorage.getItem('user') ? JSON.parse(window.localStorage.getItem('user')) : {},
       // newProduct: {},
       // products: [] 
     };
@@ -52,7 +51,8 @@ class App extends Component {
     .then(res => {
       const user = res.data;
       console.log("user", user);
-      this.setState({user});
+      window.localStorage.setItem('user', JSON.stringify(user));
+      this.setState({ user })
     })
     .catch(function (error) {
       console.log(error);
@@ -82,7 +82,8 @@ class App extends Component {
   }
 
   handleLogout() {
-    this.setState({ user: {} });
+    window.localStorage.removeItem("user");
+    this.setState({user: {}});
     console.log("done")
   }
 
