@@ -22,14 +22,14 @@ namespace FinalTest.Controllers
             _context = context;
         }
 
-        [HttpGet, Route("/products")]
-        public IActionResult GetProducts()
+        [HttpGet, Route("/{userId}/products")]
+        public IActionResult GetProducts(Guid userId)
         {
             //access data base with awesome EF
 
             // grab products
             List<Product> products = new List<Product>();
-            products = _context.Products.ToList();
+            products = _context.Products.Where(x => x.UserId == userId).ToList();
 
             return Ok(products);
         }

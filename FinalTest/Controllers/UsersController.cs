@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FinalTest.Models;
 using FinalTest.RequestModels;
+using FinalTest.ResponseModels;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -61,7 +62,10 @@ namespace FinalTest.Controllers
             }
             // fetch back the created user info
             var user = _context.Users.First(x => x.UserId == UserId);
-            return Ok(user);
+            var response = new UserResponse();
+            response.UserId = user.UserId;
+            response.Name = user.Name;
+            return Ok(response);
         }
 
         // this is a function that convert an array of bytes into a string of hex values
@@ -97,12 +101,13 @@ namespace FinalTest.Controllers
             if (user == null)
                 return StatusCode(401); //fail to authenicate
 
-            // add user.userId to session
-
             //return something without the password lolol.
-            return Ok(user);
+            var response = new UserResponse();
+            response.UserId = user.UserId;
+            response.Name = user.Name;
+            return Ok(response);
         }
-
+        // probrobally not needed
         [HttpPost, Route("/logout")]
         public IActionResult Logout()
         {
