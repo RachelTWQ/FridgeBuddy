@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 import './App.css';
 import Login from './Login.jsx';
 import Register from './Register.jsx';
@@ -29,7 +29,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: window.localStorage.getItem('user') ? JSON.parse(window.localStorage.getItem('user')) : {},
+      user: this.loggedIn() ? JSON.parse(window.localStorage.getItem('user')) : {},
       // newProduct: {},
       // products: [] 
     };
@@ -110,33 +110,56 @@ class App extends Component {
   //     })
   // }
 
+  renderPublic()
+  {
+    return (
+      <>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/register">Register</Link>
+        </li>
+        <li>
+          <Link to="/login">Login</Link>
+        </li>
+      </>
+    )
+  }
+
+  renderPrivate()
+  {
+    return (
+      <li>
+        <Link to="/logout">Logout</Link>
+      </li>
+    )
+  }
+
+  // just make it shorter lol
+  loggedIn() {
+    return window.localStorage.getItem('user')
+  }
 
   render() {
     return (
       <Router>
         <div>
+          
           <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/register">Register</Link>
-            </li>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
-              <Link to="/logout">Logout</Link>
-            </li>
+            {this.renderPublic()}
+            {this.loggedIn() ? this.renderPrivate() : null}
           </ul>
 
           <hr />
+
           <Switch>
             <Route exact path="/" component={() => <Home user={this.state.user}/>} />
-            <Route path="/register" component={() => <Register handleRegister={this.handleRegister}/>} />
-            <Route path="/login" component={() => <Login handleLogin={this.handleLogin}/>} />
+            <Route path="/register" component={() => this.loggedIn() ? <Redirect to='/' /> : <Register handleRegister={this.handleRegister}/>} />
+            <Route path="/login" component={() => this.loggedIn() ? <Redirect to='/' /> : <Login handleLogin={this.handleLogin} />} />
             <PrivateRoute path="/logout" component={() => <Logout handleLogout={this.handleLogout}/>} />
           </Switch>
+        
         </div>
 
       </Router>
