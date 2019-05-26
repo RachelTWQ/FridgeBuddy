@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import './App.css';
+import NavBar from './NavBar.jsx';
 import Login from './Login.jsx';
 import Register from './Register.jsx';
 import PrivateRoute from './PrivateRoute.jsx';
@@ -17,12 +18,7 @@ function Home({user}) {
   );
 }
 
-function Logout({handleLogout}) {
-  return (
-    <button onClick={handleLogout}>Logout</button>
-    
-  );
-}
+
 
 
 class App extends Component {
@@ -34,6 +30,7 @@ class App extends Component {
       // products: [] 
     };
     this.handleLogout = this.handleLogout.bind(this);
+    // this.listAllNotification = this.listAllNotification.bind(this);
   }
 
   // componentDidMount() {
@@ -103,38 +100,12 @@ class App extends Component {
   // }
 
   // listAllNotification() {
-  //   let userId = this.state.user.userId;
+  //   let userId = JSON.parse(window.localStorage.getItem('user')).userId;
   //   axios.get(`https://localhost:5001/${userId}/notifications`)
   //     .then(res => {
 
   //     })
   // }
-
-  renderPublic()
-  {
-    return (
-      <>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/register">Register</Link>
-        </li>
-        <li>
-          <Link to="/login">Login</Link>
-        </li>
-      </>
-    )
-  }
-
-  renderPrivate()
-  {
-    return (
-      <li>
-        <Link to="/logout">Logout</Link>
-      </li>
-    )
-  }
 
   // just make it shorter lol
   loggedIn() {
@@ -145,19 +116,14 @@ class App extends Component {
     return (
       <Router>
         <div>
-          
-          <ul>
-            {this.renderPublic()}
-            {this.loggedIn() ? this.renderPrivate() : null}
-          </ul>
-
+          <NavBar handleLogout={this.handleLogout} isLoggedIn = {this.loggedIn()} />
           <hr />
 
           <Switch>
             <Route exact path="/" component={() => <Home user={this.state.user}/>} />
             <Route path="/register" component={() => this.loggedIn() ? <Redirect to='/' /> : <Register handleRegister={this.handleRegister}/>} />
             <Route path="/login" component={() => this.loggedIn() ? <Redirect to='/' /> : <Login handleLogin={this.handleLogin} />} />
-            <PrivateRoute path="/logout" component={() => <Logout handleLogout={this.handleLogout}/>} />
+            
           </Switch>
         
         </div>
@@ -168,3 +134,4 @@ class App extends Component {
 }
 export default App;
 
+// <PrivateRoute path="/dashboard" component={() => <Notification listAllNotification={this.listAllNotification} />} />
