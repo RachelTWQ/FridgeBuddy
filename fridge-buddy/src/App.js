@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import './App.css';
 import Login from './Login.jsx';
 import Register from './Register.jsx';
+import PrivateRoute from './PrivateRoute.jsx';
 // import ProductsList from './productsList.jsx';
 // import ProductForm from './productForm.jsx';
 import axios from 'axios';
@@ -22,6 +23,7 @@ function Logout({handleLogout}) {
     
   );
 }
+
 
 class App extends Component {
   constructor(props) {
@@ -129,10 +131,12 @@ class App extends Component {
           </ul>
 
           <hr />
-          <Route exact path="/" component={() => <Home user={this.state.user}/>} />
-          <Route path="/register" component={() => <Register handleRegister={this.handleRegister}/>} />
-          <Route path="/login" component={() => <Login handleLogin={this.handleLogin}/>} />
-          <Route path="/logout" component={() => <Logout handleLogout={this.handleLogout}/>} />
+          <Switch>
+            <Route exact path="/" component={() => <Home user={this.state.user}/>} />
+            <Route path="/register" component={() => <Register handleRegister={this.handleRegister}/>} />
+            <Route path="/login" component={() => <Login handleLogin={this.handleLogin}/>} />
+            <PrivateRoute path="/logout" component={() => <Logout handleLogout={this.handleLogout}/>} />
+          </Switch>
         </div>
 
       </Router>
