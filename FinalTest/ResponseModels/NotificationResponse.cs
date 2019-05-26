@@ -5,8 +5,8 @@ namespace FinalTest.ResponseModels
     {
         public Guid NotificationId { get; set; }
         public string Note { get; set; }
-        public DateTime? ExpiryDate { get; set; }
-        public DateTime? EntryDate { get; set; }
+        public string ExpiryDate { get; set; }
+        public string EntryDate { get; set; }
         public string Category { get; set; }
         public string ProductName { get; set; }
         public string Name { get; set; }
