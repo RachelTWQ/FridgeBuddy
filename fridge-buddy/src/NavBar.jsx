@@ -7,8 +7,7 @@ function Logout({handleLogout}) {
     );
   }
 
-export default class NavBar extends React.Component
-{
+export default class NavBar extends React.Component {
     renderPublic() {
       return (
         <div>

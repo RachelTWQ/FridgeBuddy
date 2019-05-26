@@ -5,6 +5,7 @@ import NavBar from './NavBar.jsx';
 import Login from './Login.jsx';
 import Register from './Register.jsx';
 import PrivateRoute from './PrivateRoute.jsx';
+import Dashboard from './Dashboard.jsx';
 // import ProductsList from './productsList.jsx';
 // import ProductForm from './productForm.jsx';
 import axios from 'axios';
@@ -123,7 +124,7 @@ class App extends Component {
             <Route exact path="/" component={() => <Home user={this.state.user}/>} />
             <Route path="/register" component={() => this.loggedIn() ? <Redirect to='/' /> : <Register handleRegister={this.handleRegister}/>} />
             <Route path="/login" component={() => this.loggedIn() ? <Redirect to='/' /> : <Login handleLogin={this.handleLogin} />} />
-            
+            <PrivateRoute path="/dashboard" component={() => <Dashboard listAllNotification={this.listAllNotification} />} />
           </Switch>
         
         </div>
@@ -133,5 +134,3 @@ class App extends Component {
   }
 }
 export default App;
-
-// <PrivateRoute path="/dashboard" component={() => <Notification listAllNotification={this.listAllNotification} />} />
