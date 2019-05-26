@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using FinalTest.Models;
 using FinalTest.RequestModels;
+using FinalTest.ResponseModels;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -27,8 +28,20 @@ namespace FinalTest.Controllers
         public IActionResult GetUserNotifications(Guid userId)
         {
             List<Notification> notifcations = _context.Notifications.Include(x => x.Product).Include(x => x.User).Where(x => x.UserId == userId && x.IsEaten == false).ToList();
-            return Ok(notifcations);
-
+            List<NotificationResponse> responses = new List<NotificationResponse>();
+            foreach(var notification in notifcations)
+            {
+                var response = new NotificationResponse();
+                response.NotificationId = notification.NotificationId;
+                response.EntryDate = notification.EntryDate;
+                response.ExpiryDate = notification.ExpiryDate;
+                response.Note = notification.Note;
+                response.ProductName = notification.Product.ProductName;
+                response.Category = notification.Product.Category;
+                response.Name = notification.User.Name;
+                responses.Add(response);
+            }
+            return Ok(responses);
         }
 
         // this is to save the notification after scanning. whether we found it or not. we create product here as well.
@@ -62,7 +75,6 @@ namespace FinalTest.Controllers
             notifcation.ExpiryDate = DateTime.Now.AddDays(incomingProduct.ReservedDays);
             notifcation.IsEaten = false;
             notifcation.Note = incomingProduct.Note;
-            //notifcation.Note = "Remebeber to use chocolate dip before eating!Remember to buy more!";
             _context.Notifications.Add(notifcation);
             _context.SaveChanges();
 
@@ -79,14 +91,6 @@ namespace FinalTest.Controllers
 
             return Ok(notifcation);
         }
-
-        // helper function to find uneaten stuff from userId
-        private Array FindIsEatenItem(Guid userId)
-        {
-            Array result = _context.Notifications.Where(x => x.IsEaten == false && x.UserId == userId).ToArray();
-            return result;
-        }
-
 
     }
 }
