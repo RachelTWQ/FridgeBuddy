@@ -1,8 +1,39 @@
 import React from 'react';
+import axios from 'axios';
 import NotificationItem from './NotificationItem.jsx';
 
 export default class Dashboard extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+          notifications: [],
+           
+        };
+      }
+
+
+    componentWillMount() {
+        this.listAllNotifications();
+    }
+
+    listAllNotifications() {
+        debugger
+        let userId = JSON.parse(window.localStorage.getItem('user')).userId;
+        axios.get(`https://localhost:5001/${userId}/notifications`)
+          .then(res => {
+            debugger
+            const notifications = res.data;
+            this.setState({ notifications })
+            console.log("set state")
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      }
+
     render() {
+        debugger
+        return (
         <table className="class">
         <thead>
           <tr>
@@ -15,7 +46,7 @@ export default class Dashboard extends React.Component {
           </tr>
         </thead>
         <tbody>
-          {this.props.notifications.map(notification => (
+          {this.state.notifications.map(notification => (
             <NotificationItem 
               key={notification.notificationId} 
               name={notification.name}
@@ -28,5 +59,6 @@ export default class Dashboard extends React.Component {
           ))}
         </tbody>
         </table>
+        )
     }
 }

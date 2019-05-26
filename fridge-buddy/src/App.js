@@ -27,16 +27,12 @@ class App extends Component {
     super(props);
     this.state = {
       user: this.loggedIn() ? JSON.parse(window.localStorage.getItem('user')) : {},
-      notifications: {},
        
     };
     this.handleLogout = this.handleLogout.bind(this);
-    this.listAllNotification = this.listAllNotification.bind(this);
   }
 
-  componentDidMount() {
-    this.listAllNotifications();
-  }
+  
 
   // loginInfo is an obj {email: , password: }
   handleLogin = (event) => {
@@ -100,17 +96,7 @@ class App extends Component {
   //     });
   // }
 
-  listAllNotification() {
-    let userId = JSON.parse(window.localStorage.getItem('user')).userId;
-    axios.get(`https://localhost:5001/${userId}/notifications`)
-      .then(res => {
-        const notifications = res.data;
-        this.setState({ notifications })
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
+  
 
   // just make it shorter lol
   loggedIn() {
@@ -128,7 +114,7 @@ class App extends Component {
             <Route exact path="/" component={() => <Home user={this.state.user}/>} />
             <Route path="/register" component={() => this.loggedIn() ? <Redirect to='/' /> : <Register handleRegister={this.handleRegister}/>} />
             <Route path="/login" component={() => this.loggedIn() ? <Redirect to='/' /> : <Login handleLogin={this.handleLogin} />} />
-            <PrivateRoute path="/dashboard" component={() => <Dashboard notifications={this.state.notifications} listAllNotification={this.listAllNotification} />} />
+            <PrivateRoute path="/dashboard" component={() => <Dashboard notifications={this.state.notifications} />} />
           </Switch>
         
         </div>

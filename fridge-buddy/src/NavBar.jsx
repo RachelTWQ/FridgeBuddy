@@ -22,6 +22,7 @@ export default class NavBar extends React.Component {
       const { handleLogout } = this.props  
       return (
         <div>
+            <Link to="/dashboard">Dashboard</Link>
           <Logout handleLogout={handleLogout}/>
         </div>
       )
