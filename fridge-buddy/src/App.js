@@ -96,8 +96,6 @@ class App extends Component {
   //     });
   // }
 
-  
-
   // just make it shorter lol
   loggedIn() {
     return window.localStorage.getItem('user')

@@ -1,18 +1,20 @@
 import React from 'react';
 import axios from 'axios';
 import NotificationItem from './NotificationItem.jsx';
+import ProductForm from './productForm.jsx';
 
 export default class Dashboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       notifications: [],
-      newNotification: {}
+      newNotification: {},
+      newProduct: {}
     };
     this.listAllNotifications = this.listAllNotifications.bind(this);
     this.updateFinished = this.updateFinished.bind(this);
+    this.getProductFromBarcode = this.getProductFromBarcode.bind(this);
   }
-
 
   componentWillMount() {
     this.listAllNotifications();
@@ -43,8 +45,27 @@ export default class Dashboard extends React.Component {
     });
   }
 
+  getProductFromBarcode(barcode) {
+    let userId = JSON.parse(window.localStorage.getItem('user')).userId;
+
+    axios.get(`https://localhost:5001/${userId}/product/${barcode}`)
+    .then(res => {
+      const newProduct = res.data;
+      this.setState({ newProduct });
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
   render() {
     return (
+      <>
+      <ProductForm 
+        getProductFromBarcode={this.getProductFromBarcode} 
+        productName={this.state.newProduct.productName} 
+        category={this.state.newProduct.category}
+      />
       <table className="class">
         <thead>
           <tr>
@@ -73,6 +94,7 @@ export default class Dashboard extends React.Component {
           ))}
         </tbody>
       </table>
+      </>
     )
   }
 }
