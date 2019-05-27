@@ -3,38 +3,35 @@ import axios from 'axios';
 import NotificationItem from './NotificationItem.jsx';
 
 export default class Dashboard extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-          notifications: [],
-           
-        };
-      }
+  constructor(props) {
+    super(props);
+    this.state = {
+      notifications: [],
+
+    };
+  }
 
 
-    componentWillMount() {
-        this.listAllNotifications();
-    }
+  componentWillMount() {
+    this.listAllNotifications();
+  }
 
-    listAllNotifications() {
-        debugger
-        let userId = JSON.parse(window.localStorage.getItem('user')).userId;
-        axios.get(`https://localhost:5001/${userId}/notifications`)
-          .then(res => {
-            debugger
-            const notifications = res.data;
-            this.setState({ notifications })
-            console.log("set state")
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-      }
+  listAllNotifications() {
+    let userId = JSON.parse(window.localStorage.getItem('user')).userId;
+    axios.get(`https://localhost:5001/${userId}/notifications`)
+      .then(res => {
+        const notifications = res.data;
+        this.setState({ notifications })
+        console.log("set state")
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
 
-    render() {
-        debugger
-        return (
-        <table className="class">
+  render() {
+    return (
+      <table className="class">
         <thead>
           <tr>
             <th className="col-sm-2 text-center table-data-head">Name</th>
@@ -43,22 +40,23 @@ export default class Dashboard extends React.Component {
             <th className="col-sm-3 text-center table-data-head">Entry Date</th>
             <th className="col-sm-2 text-center table-data-head">Expiry Date</th>
             <th className="col-sm-2 text-center table-data-head">Note</th>
+            <th className="col-sm-2 text-center table-data-head">Edit</th>
           </tr>
         </thead>
         <tbody>
           {this.state.notifications.map(notification => (
-            <NotificationItem 
-              key={notification.notificationId} 
+            <NotificationItem
+              key={notification.notificationId}
               name={notification.name}
               entry={notification.entryDate}
-              exp={notification.expiryDate} 
+              exp={notification.expiryDate}
               note={notification.note}
               productName={notification.productName}
               category={notification.category}
-              />
+            />
           ))}
         </tbody>
-        </table>
-        )
-    }
+      </table>
+    )
+  }
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Login({handleLogin}) {
 return(
@@ -9,5 +10,7 @@ return(
       <p>Password: </p><input name="password" type="password"/>
       <button>Login</button>
     </form>
+
+    <span>If you are new to Fridge Buddy, <Link to="/register">Register</Link> here please!</span>
   </>
 )}

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Register({ handleRegister }) {
   return (
@@ -12,6 +13,7 @@ export default function Register({ handleRegister }) {
         <p>Phone: </p><input name="phoneNumber" type="text" />
         <button>Register</button>
       </form>
+      <span>If you are already with Fridge Buddy, <Link to="/login">Login</Link> here please!</span>
     </>
   )
 }
