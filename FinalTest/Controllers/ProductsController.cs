@@ -38,7 +38,7 @@ namespace FinalTest.Controllers
         [HttpGet, Route ("/{userId}/product/{barcode}")]
         public IActionResult FindProductByBarcode(Guid userId, string barcode)
         {
-            Product product = _context.Products.FirstOrDefault(x => x.Barcode == barcode);
+            Product product = _context.Products.FirstOrDefault(x => x.Barcode == barcode && x.UserId == userId);
             return Ok(product);
         }
 

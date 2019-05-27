@@ -81,15 +81,15 @@ namespace FinalTest.Controllers
             return Ok();
         }
 
-        [HttpPut, Route("/{userId}/notifications/{notificationId}")]
+        [HttpPut, Route("/{userId}/notification/{notificationId}")]
         public IActionResult UpdateIsEaten(Guid userId, Guid notificationId)
         {
-            Notification notifcation = _context.Notifications.FirstOrDefault(x => x.NotificationId == notificationId);
-            notifcation.IsEaten = true;
-            _context.Notifications.Update(notifcation);
+            Notification notification = _context.Notifications.FirstOrDefault(x => x.NotificationId == notificationId);
+            notification.IsEaten = true;
+            _context.Notifications.Update(notification);
             _context.SaveChanges();
 
-            return Ok(notifcation);
+             return Ok();
         }
 
     }
