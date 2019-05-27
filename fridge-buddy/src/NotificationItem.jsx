@@ -1,11 +1,24 @@
 import React from 'react';
+import axios from 'axios';
 
 export default class NotificationItem extends React.Component {
+
+  updateFinished (id) {
+    let userId = JSON.parse(window.localStorage.getItem('user')).userId;
+    axios.put(`https://localhost:5001/${userId}/notification/${id}`)
+    .then(res => {
+      console.log("update isEaten")
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
   render() {
     return (
       <tr>
         <td>
-          {this.props.name}
+          {this.props.username}
         </td>
         <td>
           {this.props.productName}
@@ -23,7 +36,7 @@ export default class NotificationItem extends React.Component {
           {this.props.note}
         </td>
         <td>
-          <button>Finished</button>
+          <button onClick={() => this.updateFinished(this.props.notificationId)}>Finished</button>
         </td>
       </tr>
     )

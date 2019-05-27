@@ -7,7 +7,7 @@ export default class Dashboard extends React.Component {
     super(props);
     this.state = {
       notifications: [],
-
+      newNotification: {}
     };
   }
 
@@ -47,7 +47,8 @@ export default class Dashboard extends React.Component {
           {this.state.notifications.map(notification => (
             <NotificationItem
               key={notification.notificationId}
-              name={notification.name}
+              notificationId={notification.notificationId}
+              username={notification.name}
               entry={notification.entryDate}
               exp={notification.expiryDate}
               note={notification.note}
