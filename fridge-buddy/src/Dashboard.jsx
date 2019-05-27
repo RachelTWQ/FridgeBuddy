@@ -9,6 +9,8 @@ export default class Dashboard extends React.Component {
       notifications: [],
       newNotification: {}
     };
+    this.listAllNotifications = this.listAllNotifications.bind(this);
+    this.updateFinished = this.updateFinished.bind(this);
   }
 
 
@@ -27,6 +29,18 @@ export default class Dashboard extends React.Component {
       .catch(function (error) {
         console.log(error);
       });
+  }
+
+  updateFinished (id) {
+    let userId = JSON.parse(window.localStorage.getItem('user')).userId;
+    axios.put(`https://localhost:5001/${userId}/notification/${id}`)
+    .then(res => {
+      console.log("update isEaten");
+      this.listAllNotifications();
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
 
   render() {
@@ -54,6 +68,7 @@ export default class Dashboard extends React.Component {
               note={notification.note}
               productName={notification.productName}
               category={notification.category}
+              updateFinished={this.updateFinished}
             />
           ))}
         </tbody>
