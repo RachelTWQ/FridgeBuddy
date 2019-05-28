@@ -43,7 +43,7 @@ namespace FinalTest.Controllers
         }
 
         // update particular product info Put or get???
-        [HttpPut, Route("{userId}/products/{productId}")]
+        [HttpPut, Route("{userId}/product/{productId}")]
         public IActionResult UpdateProductCategoryById(Guid userId, Guid productId, [FromBody] UpdateProductRequest incomingInfo)
         {
             Product product = _context.Products.FirstOrDefault(x => x.ProductId == productId && x.UserId == userId);
@@ -62,50 +62,5 @@ namespace FinalTest.Controllers
             return Ok();
         }
 
-        [HttpGet, Route("/products/test")]
-        public IActionResult CreateTestData()
-        {
-
-            var newProduct = new Product();
-            newProduct.ProductId = new Guid();
-            newProduct.Barcode = "3333";
-            newProduct.Category = "seafood";
-            newProduct.ProductName = "sausage";
-            _context.Products.Add(newProduct);
-
-            var user = new User();
-            user.UserId = new Guid();
-            user.Name = "Jojo";
-            user.Email = "dennischeng1234+fake@gmail.com";
-            user.Password = "password";
-            user.PhoneNumber = "333333232";
-            _context.Users.Add(user);
-
-
-            Notification notifcation = new Notification();
-            notifcation.NotificationId = new Guid();
-            notifcation.ProductId = newProduct.ProductId;
-            notifcation.UserId = user.UserId;
-            notifcation.EntryDate = DateTime.Now;
-            notifcation.ExpiryDate = DateTime.Now.AddDays(2);
-            notifcation.IsEaten = false;
-            notifcation.Note = "Remebeber to use chocolate dip before eating!Remember to buy more!";
-            _context.Notifications.Add(notifcation);
-            _context.SaveChanges();
-            return Ok();
-        }
-
-
-
-        [HttpGet, Route("/products/test1")] // fetch data with condition
-        public IActionResult UpdateTestData()
-        {
-            //var result = _context.Inventories.First(x => x.ProductName == "salmon"); // && x.column name
-            //result.IsEaten = true;
-            //_context.Inventories.Update(result);
-            //_context.SaveChanges();
-
-            return Ok();
-        }
     }
 }
