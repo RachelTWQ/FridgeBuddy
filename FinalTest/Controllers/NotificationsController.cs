@@ -45,7 +45,7 @@ namespace FinalTest.Controllers
         }
 
         // this is to save the notification after scanning. whether we found it or not. we create product here as well.
-        [HttpPost, Route("/{userId}/notifications")]
+        [HttpPost, Route("/{userId}/notification")]
         public IActionResult InsertNewNotification(Guid userId, [FromBody] NewProductRequest incomingProduct) // [FromBody] tag is a must to clarify
         {
             var productId = Guid.NewGuid();
@@ -56,11 +56,25 @@ namespace FinalTest.Controllers
                 newProduct.Barcode = incomingProduct.Barcode;
                 newProduct.Category = incomingProduct.Category;
                 newProduct.ProductName = incomingProduct.ProductName;
+                newProduct.UserId = userId;
+
                 _context.Products.Add(newProduct);
             }
             else if (incomingProduct.productId != null)
             {
                 productId = incomingProduct.productId.Value;
+
+                Product product = _context.Products.FirstOrDefault(x => x.ProductId == productId && x.UserId == userId);
+                if (incomingProduct.ProductName != "" && incomingProduct.ProductName != product.ProductName)
+                {
+                    product.ProductName = incomingProduct.ProductName;
+                }
+                if (incomingProduct.Category != "" && incomingProduct.Category != product.Category)
+                {
+                    product.Category = incomingProduct.Category;
+                }
+
+                _context.Products.Update(product);
             }
             else
             {
@@ -89,7 +103,7 @@ namespace FinalTest.Controllers
             _context.Notifications.Update(notification);
             _context.SaveChanges();
 
-             return Ok();
+            return Ok();
         }
 
     }
