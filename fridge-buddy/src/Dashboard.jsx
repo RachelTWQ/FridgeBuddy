@@ -13,7 +13,6 @@ export default class Dashboard extends React.Component {
     };
     this.listAllNotifications = this.listAllNotifications.bind(this);
     this.updateFinished = this.updateFinished.bind(this);
-    this.getProductFromBarcode = this.getProductFromBarcode.bind(this);
   }
 
   componentWillMount() {
@@ -26,7 +25,6 @@ export default class Dashboard extends React.Component {
       .then(res => {
         const notifications = res.data;
         this.setState({ notifications })
-        console.log("set state")
       })
       .catch(function (error) {
         console.log(error);
@@ -37,7 +35,6 @@ export default class Dashboard extends React.Component {
     let userId = JSON.parse(window.localStorage.getItem('user')).userId;
     axios.put(`https://localhost:5001/${userId}/notification/${id}`)
     .then(res => {
-      console.log("update isEaten");
       this.listAllNotifications();
     })
     .catch(function (error) {
@@ -45,40 +42,13 @@ export default class Dashboard extends React.Component {
     });
   }
 
-  getProductFromBarcode(barcode) {
-    let userId = JSON.parse(window.localStorage.getItem('user')).userId;
 
-    axios.get(`https://localhost:5001/${userId}/product/${barcode}`)
-    .then(res => {
-      const newProduct = res.data;
-      this.setState({ newProduct });
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-  }
-
-  submitNewNotification = (newNotification) => {
-
-    let userId = JSON.parse(window.localStorage.getItem('user')).userId;
-    
-    axios.post(`https://localhost:5001/${userId}/notification`, newNotification)
-    .then(res => {
-      console.log("add new notification");
-      this.listAllNotifications();
-    })
-    .catch(err => console.log(err))
-  }
 
   render() {
     return (
       <>
       <ProductForm 
-        getProductFromBarcode={this.getProductFromBarcode}
-        submitNewNotification={this.submitNewNotification} 
-        productName={this.state.newProduct.productName} 
-        category={this.state.newProduct.category}
-        productId={this.state.newProduct.productId}
+        listAllNotifications={this.listAllNotifications}
       />
       <table className="class">
         <thead>
