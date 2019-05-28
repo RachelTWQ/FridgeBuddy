@@ -16,10 +16,8 @@ class ProductForm extends Component {
   }
 
   barcodeSearch = (event) => {
-    if (event.key === "Enter") {
       const barcode = event.target.value;
       this.getProductFromBarcode(barcode);
-    }
   }
 
   getProductFromBarcode(barcode) {
@@ -74,7 +72,7 @@ class ProductForm extends Component {
   render() {
     return (
       <>
-          <p>Barcode: <input name="barcode" value={this.state.Barcode || ''} type="text" onKeyDown={this.barcodeSearch} onChange={(e) => this.setState({Barcode: e.target.value})} /></p>
+          <p>Barcode: <input name="barcode" value={this.state.Barcode || ''} type="text" onBlur={this.barcodeSearch} onChange={(e) => this.setState({Barcode: e.target.value})} /></p>
           <p>Product Name: <input name="productName" value={this.state.ProductName|| ''} type="text" onChange={(e) => this.setState({ProductName: e.target.value})} /></p>
           <p>Category: <input name="category" value={this.state.Category || ''} type="text" onChange={(e) => this.setState({Category: e.target.value})} /></p>
           <p>Reserved Days: <input name="reservedDays" value={this.state.ReservedDays || ''} type="number" min="0" onChange={(e) => this.setState({ReservedDays: e.target.value})}/></p>
