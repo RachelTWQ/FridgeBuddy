@@ -58,13 +58,27 @@ export default class Dashboard extends React.Component {
     });
   }
 
+  submitNewNotification = (newNotification) => {
+
+    let userId = JSON.parse(window.localStorage.getItem('user')).userId;
+    
+    axios.post(`https://localhost:5001/${userId}/notification`, newNotification)
+    .then(res => {
+      console.log("add new notification");
+      this.listAllNotifications();
+    })
+    .catch(err => console.log(err))
+  }
+
   render() {
     return (
       <>
       <ProductForm 
-        getProductFromBarcode={this.getProductFromBarcode} 
+        getProductFromBarcode={this.getProductFromBarcode}
+        submitNewNotification={this.submitNewNotification} 
         productName={this.state.newProduct.productName} 
         category={this.state.newProduct.category}
+        productId={this.state.newProduct.productId}
       />
       <table className="class">
         <thead>

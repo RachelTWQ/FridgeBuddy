@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
 class ProductForm extends Component {
 
@@ -12,11 +11,16 @@ class ProductForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    axios.put("https://localhost:5001/products", {
-      // incoming product object here
-    })
-    .then(res => console.log(res))
-    .catch(err => console.log(err))
+    const newNotification = {
+      ProductId: this.props.productId,
+      ProductName: event.target.productName.value,
+      Barcode: event.target.barcode.value,
+      Category: event.target.category.value,
+      ReservedDays: event.target.reservedDays.value,
+      Note: event.target.note.value,
+      newProduct: this.props.productId !== undefined
+    }
+    this.props.submitNewNotification(newNotification);
   }
 
   render() {
@@ -28,7 +32,8 @@ class ProductForm extends Component {
           <p>Category: <input name="category" type="text" defaultValue={this.props.category} /></p>
           <p>Reserved Days: <input name="reservedDays" type="number" min="0" /></p>
           <p>Note: <input name="note" type="text" /></p>
-          <input type="submit" value="Submit" onClick={this.handleSubmit}></input>
+          <button onClick={this.handleSubmit}>Submit</button>
+
         </form>
       </>
     )

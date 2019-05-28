@@ -6,8 +6,6 @@ import Login from './Login.jsx';
 import Register from './Register.jsx';
 import PrivateRoute from './PrivateRoute.jsx';
 import Dashboard from './Dashboard.jsx';
-// import ProductsList from './productsList.jsx';
-// import ProductForm from './productForm.jsx';
 import axios from 'axios';
 
 function Home({user}) {
@@ -18,9 +16,6 @@ function Home({user}) {
     </div>
   );
 }
-
-
-
 
 class App extends Component {
   constructor(props) {
