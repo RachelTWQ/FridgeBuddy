@@ -16,13 +16,13 @@ class ProductForm extends Component {
   }
 
   barcodeSearch = (event) => {
-      const barcode = event.target.value;
-      this.getProductFromBarcode(barcode);
+    const barcode = event.target.value;
+    this.getProductFromBarcode(barcode);
   }
 
   getProductFromBarcode(barcode) {
     let userId = JSON.parse(window.localStorage.getItem('user')).userId;
-
+    // get product information from barcode. expecting productId, product Name and category
     axios.get(`https://localhost:5001/${userId}/product/${barcode}`)
     .then(res => {
       const newProduct = res.data;
@@ -39,7 +39,7 @@ class ProductForm extends Component {
   submitNewNotification = (newNotification) => {
 
     let userId = JSON.parse(window.localStorage.getItem('user')).userId;
-    
+    // save new entry to notification. the server will take care of comparing the product name and category
     axios.post(`https://localhost:5001/${userId}/notification`, newNotification)
     .then(res => {
       this.props.listAllNotifications();
