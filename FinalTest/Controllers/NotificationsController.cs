@@ -34,7 +34,8 @@ namespace FinalTest.Controllers
                 var response = new NotificationResponse();
                 response.NotificationId = notification.NotificationId;
                 response.EntryDate = notification.EntryDate.Value.ToShortDateString();
-                response.ExpiryDate = notification.ExpiryDate.Value.ToShortDateString();
+                response.ExpiryDateString = notification.ExpiryDate.Value.ToShortDateString();
+                response.ExpiryDate = notification.ExpiryDate;
                 response.Note = notification.Note;
                 response.ProductName = notification.Product.ProductName;
                 response.Category = notification.Product.Category;
