@@ -69,7 +69,8 @@ export default class Dashboard extends React.Component {
               notificationId={notification.notificationId}
               username={notification.name}
               entry={notification.entryDate}
-              exp={notification.expiryDate}
+              exp={notification.expiryDateString}
+              expDate={notification.expiryDate}
               note={notification.note}
               productName={notification.productName}
               category={notification.category}

@@ -2,9 +2,12 @@ import React from 'react';
 
 export default class NotificationItem extends React.Component {
 
+
   render() {
+    const expStyle = { color: new Date(this.props.expDate) < new Date() && "red"};
+    
     return (
-      <tr>
+      <tr style={ expStyle }>
         <td>
           {this.props.username}
         </td>
