@@ -107,12 +107,6 @@ namespace FinalTest.Controllers
             response.Name = user.Name;
             return Ok(response);
         }
-        // probrobally not needed
-        [HttpPost, Route("/logout")]
-        public IActionResult Logout()
-        {
-            return Ok();
-        }
     }
 
 }

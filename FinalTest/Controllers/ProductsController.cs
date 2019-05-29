@@ -1,4 +1,7 @@
 ﻿using System;
+using RestSharp;
+using Newtonsoft.Json;
+using Microsoft.CSharp;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -62,5 +65,27 @@ namespace FinalTest.Controllers
             return Ok();
         }
 
+        private static Object UpcLookup(string barcode)
+        {
+
+            var client = new RestClient("https://api.upcitemdb.com/prod/trial/");
+            // lookup request with GET
+            var request = new RestRequest("lookup", Method.GET);
+
+            request.AddQueryParameter("upc", barcode);
+            IRestResponse response = client.Execute(request);
+            // parsing json
+            var obj = JsonConvert.DeserializeObject(response.Content);
+            Console.WriteLine("offset", obj);
+            return obj;
+        }
+
+        [HttpGet, Route("/product/{barcode}")]
+        public IActionResult FetchDB(string barcode)
+        {
+            var response = UpcLookup(barcode);
+            Console.WriteLine("done fetching");
+            return Ok(response);
+        }
     }
 }
