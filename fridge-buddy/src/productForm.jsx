@@ -23,12 +23,22 @@ class ProductForm extends Component {
   getProductFromBarcode(barcode) {
     let userId = JSON.parse(window.localStorage.getItem('user')).userId;
     // get product information from barcode. expecting productId, product Name and category
-    axios.get(`https://localhost:5001/${userId}/product/${barcode}`)
+    axios.get(`http://localhost:5000/${userId}/product/${barcode}`)
     .then(res => {
       const newProduct = res.data;
 
-      if(newProduct){
+      if(newProduct) {
         this.setState({ ...this.state, ProductId: newProduct.productId, ProductName: newProduct.productName, Category: newProduct.category, Barcode: newProduct.barcode });
+      } 
+      else {
+        axios.get(`http://localhost:5000/product/${barcode}`)
+        .then(res => {
+          console.log("res", res)
+          this.setState({ ...this.state, ProductName: res.data.items[0].title });
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
       }
     })
     .catch(function (error) {
@@ -40,7 +50,7 @@ class ProductForm extends Component {
 
     let userId = JSON.parse(window.localStorage.getItem('user')).userId;
     // save new entry to notification. the server will take care of comparing the product name and category
-    axios.post(`https://localhost:5001/${userId}/notification`, newNotification)
+    axios.post(`http://localhost:5000/${userId}/notification`, newNotification)
     .then(res => {
       this.props.listAllNotifications();
     })

@@ -38,7 +38,7 @@ class App extends Component {
     }
     console.log("loginInfo", loginInfo);
 
-    axios.put("https://localhost:5001/login", loginInfo)
+    axios.put("http://localhost:5000/login", loginInfo)
     .then(res => {
       const user = res.data;
       console.log("user", user);
@@ -62,7 +62,7 @@ class App extends Component {
     }
     console.log("registerInfo", registerInfo);
 
-    axios.post("https://localhost:5001/register", registerInfo)
+    axios.post("http://localhost:5000/register", registerInfo)
     .then(res => {
       const user = res.data;
       window.localStorage.setItem('user', JSON.stringify(user));
@@ -81,7 +81,7 @@ class App extends Component {
 
   // listAllProducts() {
   //   let userId = this.state.user.userId;
-  //   axios.get(`https://localhost:5001/${userId}/products`)
+  //   axios.get(`http://localhost:5000/${userId}/products`)
   //     .then(res => {
   //       const products = res.data; // use debugger to check how the res looks like
   //       this.setState({ products });
