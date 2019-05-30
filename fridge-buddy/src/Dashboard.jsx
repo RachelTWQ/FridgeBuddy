@@ -8,8 +8,6 @@ export default class Dashboard extends React.Component {
     super(props);
     this.state = {
       notifications: [],
-      newNotification: {},
-      newProduct: {}
     };
     this.listAllNotifications = this.listAllNotifications.bind(this);
     this.updateFinished = this.updateFinished.bind(this);

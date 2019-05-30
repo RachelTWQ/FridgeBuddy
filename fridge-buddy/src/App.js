@@ -6,6 +6,7 @@ import Login from './Login.jsx';
 import Register from './Register.jsx';
 import PrivateRoute from './PrivateRoute.jsx';
 import Dashboard from './Dashboard.jsx';
+import ProductList from './productsList.jsx';
 import axios from 'axios';
 
 function Home({user}) {
@@ -79,17 +80,6 @@ class App extends Component {
     console.log("done")
   }
 
-  // listAllProducts() {
-  //   let userId = this.state.user.userId;
-  //   axios.get(`http://localhost:5000/${userId}/products`)
-  //     .then(res => {
-  //       const products = res.data; // use debugger to check how the res looks like
-  //       this.setState({ products });
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     });
-  // }
 
   // just make it shorter lol
   loggedIn() {
@@ -107,7 +97,8 @@ class App extends Component {
             <Route exact path="/" component={() => <Home user={this.state.user}/>} />
             <Route path="/register" component={() => this.loggedIn() ? <Redirect to='/' /> : <Register handleRegister={this.handleRegister}/>} />
             <Route path="/login" component={() => this.loggedIn() ? <Redirect to='/' /> : <Login handleLogin={this.handleLogin} />} />
-            <PrivateRoute path="/dashboard" component={() => <Dashboard notifications={this.state.notifications} />} />
+            <PrivateRoute path="/dashboard" component={Dashboard} />
+            <PrivateRoute path="/product" component={ProductList} />
           </Switch>
         
         </div>

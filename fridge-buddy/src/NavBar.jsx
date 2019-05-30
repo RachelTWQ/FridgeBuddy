@@ -23,6 +23,7 @@ export default class NavBar extends React.Component {
     return (
       <>
         <Link to="/dashboard">Dashboard</Link>
+        <Link to="/product">Product</Link>
         <Logout handleLogout={handleLogout} />
       </>
     )

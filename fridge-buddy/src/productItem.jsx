@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class ProductItem extends Component {
     render() {
-        const isEaten = this.props.isEaten ? "Yes" : "No";
+
         return (
             <tr>
                 <td>
@@ -12,13 +12,7 @@ class ProductItem extends Component {
                     {this.props.productName}
                 </td>
                 <td>
-                    {this.props.entry}
-                </td>
-                <td>
-                    {this.props.exp}
-                </td>
-                <td>
-                    {isEaten}
+                    {this.props.category}
                 </td>
             </tr>
         )
