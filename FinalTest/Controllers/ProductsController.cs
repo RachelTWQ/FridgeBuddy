@@ -65,7 +65,7 @@ namespace FinalTest.Controllers
             return Ok();
         }
 
-        private static Object UpcLookup(string barcode)
+        private Object UpcLookup(string barcode)
         {
 
             var client = new RestClient("https://api.upcitemdb.com/prod/trial/");
@@ -76,7 +76,6 @@ namespace FinalTest.Controllers
             IRestResponse response = client.Execute(request);
             // parsing json
             var obj = JsonConvert.DeserializeObject(response.Content);
-            Console.WriteLine("offset", obj);
             return obj;
         }
 
@@ -84,7 +83,6 @@ namespace FinalTest.Controllers
         public IActionResult FetchDB(string barcode)
         {
             var response = UpcLookup(barcode);
-            Console.WriteLine("done fetching");
             return Ok(response);
         }
     }

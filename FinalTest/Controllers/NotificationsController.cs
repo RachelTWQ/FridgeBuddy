@@ -8,8 +8,9 @@ using FinalTest.ResponseModels;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-
-
+using Twilio;
+using Twilio.Rest.Api.V2010.Account;
+using System.Net.Mail;
 
 namespace FinalTest.Controllers
 {
@@ -27,7 +28,7 @@ namespace FinalTest.Controllers
         [HttpGet, Route("/{userId}/notifications")]
         public IActionResult GetUserNotifications(Guid userId)
         {
-            List<Notification> notifcations = _context.Notifications.Include(x => x.Product).Include(x => x.User).Where(x => x.UserId == userId && x.IsEaten == false).ToList();
+            List<Notification> notifcations = _context.Notifications.Include(x => x.Product).Include(x => x.User).Where(x => x.UserId == userId && x.IsEaten == false).OrderBy(x => x.ExpiryDate).ToList();
             List<NotificationResponse> responses = new List<NotificationResponse>();
             foreach(var notification in notifcations)
             {
@@ -107,5 +108,67 @@ namespace FinalTest.Controllers
             return Ok();
         }
 
+        private void SendSMS(string content, string phoneNumber)
+        {
+            DotNetEnv.Env.Load("./.env");
+            var accountSid = System.Environment.GetEnvironmentVariable("TWILIO_ACCOUNT_SID");
+            var authToken = System.Environment.GetEnvironmentVariable("TWILIO_AUTH_TOKEN");
+            var twilioNumber = System.Environment.GetEnvironmentVariable("TWILIO_NUMBER"); 
+
+            TwilioClient.Init(accountSid, authToken);
+
+            var message = MessageResource.Create(
+                body: content,
+                from: new Twilio.Types.PhoneNumber(twilioNumber),
+                to: new Twilio.Types.PhoneNumber($"+1{phoneNumber}")
+            );
+            Console.WriteLine(message.Sid);
+        }
+
+        //private void SendEmail(string content, string email)
+        //{
+        //    MailMessage mail = new MailMessage("admin@fridgebuddy.com", email);
+        //    SmtpClient client = new SmtpClient();
+        //    client.Port = 25;
+        //    client.DeliveryMethod = SmtpDeliveryMethod.Network;
+        //    client.UseDefaultCredentials = false;
+        //    client.Host = "smtp.gmail.com";
+        //    mail.Subject = "Fridge Buddy Notification";
+        //    mail.Body = content;
+        //    client.Send(mail);
+        //}
+
+        [HttpGet, Route("/notifications")]
+        public IActionResult SendNotification()
+        {
+
+            List<Notification> notifcations = _context.Notifications.Include(x => x.Product).Include(x => x.User).Where(x => x.ExpiryDate <= DateTime.Now && x.IsEaten == false).ToList();
+
+            Dictionary<string, List<SendResponse>> smsDictonary = new Dictionary<string, List<SendResponse>>();
+            foreach (var notification in notifcations)
+            {
+                var response = new SendResponse();
+
+                response.ProductName = notification.Product.ProductName;
+                response.Name = notification.User.Name;
+                response.Email = notification.User.Email;
+                response.PhoneNumber = notification.User.PhoneNumber;
+                if (!smsDictonary.ContainsKey(notification.User.PhoneNumber))
+                {
+                    smsDictonary.Add(notification.User.PhoneNumber, new List<SendResponse>());
+                }
+                smsDictonary[notification.User.PhoneNumber].Add(response);
+            }
+
+            foreach (var phoneNumber in smsDictonary.Keys)
+            {
+                var screeningResult = String.Join(", ", smsDictonary[phoneNumber].Select(x => x.ProductName).ToArray());
+                Console.WriteLine(screeningResult);
+                string content = $"Hello {smsDictonary[phoneNumber][0].Name}, you set to finish eating {screeningResult} today. Take a look into your fridge!";
+                SendSMS(content, phoneNumber);
+               //SendEmail(content, smsDictonary[phoneNumber][0].Email);
+            }
+            return Ok(smsDictonary);
+        }
     }
 }
