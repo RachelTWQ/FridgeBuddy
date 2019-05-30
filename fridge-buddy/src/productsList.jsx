@@ -35,7 +35,7 @@ class ProductsList extends Component {
             <th className="col-sm-2 text-center table-data-head">Barcode</th>
             <th className="col-sm-3 text-center table-data-head">Product Name</th>
             <th className="col-sm-3 text-center table-data-head">Category</th>
-
+            <th className="col-sm-3 text-center table-data-head">Edit</th>
           </tr>
         </thead>
         <tbody>
@@ -46,6 +46,7 @@ class ProductsList extends Component {
               category={product.category}
               productId={product.productId}
               productName={product.productName}
+              listAllProducts={this.listAllProducts}
               />
           ))}
         </tbody>
