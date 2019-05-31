@@ -3,17 +3,30 @@ import { Link } from "react-router-dom";
 
 function Logout({ handleLogout }) {
   return (
-    <button onClick={handleLogout}>Logout</button>
+    <button className='logoutButton' onClick={handleLogout}>Logout</button>
   );
 }
 
+const linkStyle = { 
+  textDecoration: 'none', 
+  color: 'black',  
+  background: 'rgb(141,217,252)',
+  borderRadius: '5px',
+  border: 'none',
+  boxShadow: '1px 1px 0px 2px rgba (0,0,0,0.3)',
+  cursor: 'pointer',
+  fontSize: '1rem',
+  padding: '0.3rem',
+};
+
 export default class NavBar extends React.Component {
+  
   renderPublic() {
     return (
       <>
-        <Link to="/">Home</Link>
-        <Link to="/register">Register</Link>
-        <Link to="/login">Login</Link>
+        <div className='nav_icon'><Link style={ linkStyle } to="/">Home</Link></div>
+        <div className='nav_icon'><Link style={ linkStyle } to="/register">Register</Link></div>
+        <div className='nav_icon'><Link style={ linkStyle } to="/login">Login</Link></div>
       </>
     )
   }
@@ -22,9 +35,9 @@ export default class NavBar extends React.Component {
     const { handleLogout } = this.props
     return (
       <>
-        <Link to="/dashboard">Dashboard</Link>
-        <Link to="/product">Product</Link>
-        <Logout handleLogout={handleLogout} />
+        <div className='nav_icon'><Link style={ linkStyle } to="/dashboard">Dashboard</Link></div>
+        <div className='nav_icon'><Link style={ linkStyle } to="/product">Product</Link></div>
+        <div className='nav_icon_logout'><Logout handleLogout={handleLogout} /></div>
       </>
     )
   }
@@ -32,7 +45,7 @@ export default class NavBar extends React.Component {
   render() {
     const { isLoggedIn } = this.props;
     return (
-      <div>
+      <div className='nav_bar'>
         {this.renderPublic()}
         {isLoggedIn ? this.renderPrivate() : null}
       </div>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import './App.css';
+import img from './LogoMakr_4MSdTX.png';
 import NavBar from './NavBar.jsx';
 import Login from './Login.jsx';
 import Register from './Register.jsx';
@@ -13,7 +14,8 @@ function Home({user}) {
   return (
     <div>
       <h2>Home</h2>
-      <p>{user.name}</p>
+      <img src={img} alt="logo"/>
+      {user.name !== undefined ? (<p>Welcome back, {user.name}</p>) : (<p>Welcome to Fridge Buddy</p>)}
     </div>
   );
 }
@@ -37,7 +39,6 @@ class App extends Component {
       Email: event.target.email.value,
       Password: event.target.password.value
     }
-    console.log("loginInfo", loginInfo);
 
     axios.put("http://localhost:5000/login", loginInfo)
     .then(res => {
@@ -61,7 +62,6 @@ class App extends Component {
       PasswordRepeat: event.target.passwordRepeat.value,
       PhoneNumber: event.target.phoneNumber.value
     }
-    console.log("registerInfo", registerInfo);
 
     axios.post("http://localhost:5000/register", registerInfo)
     .then(res => {
@@ -77,7 +77,6 @@ class App extends Component {
   handleLogout() {
     window.localStorage.removeItem("user");
     this.setState({user: {}});
-    console.log("done")
   }
 
 
@@ -91,18 +90,16 @@ class App extends Component {
       <Router>
         <div>
           <NavBar handleLogout={this.handleLogout} isLoggedIn = {this.loggedIn()} />
-          <hr />
-
-          <Switch>
-            <Route exact path="/" component={() => <Home user={this.state.user}/>} />
-            <Route path="/register" component={() => this.loggedIn() ? <Redirect to='/' /> : <Register handleRegister={this.handleRegister}/>} />
-            <Route path="/login" component={() => this.loggedIn() ? <Redirect to='/' /> : <Login handleLogin={this.handleLogin} />} />
-            <PrivateRoute path="/dashboard" component={Dashboard} />
-            <PrivateRoute path="/product" component={ProductList} />
-          </Switch>
-        
+          <div>
+            <Switch>
+              <Route exact path="/" component={() => <Home user={this.state.user}/>} />
+              <Route path="/register" component={() => this.loggedIn() ? <Redirect to='/' /> : <Register handleRegister={this.handleRegister}/>} />
+              <Route path="/login" component={() => this.loggedIn() ? <Redirect to='/' /> : <Login handleLogin={this.handleLogin} />} />
+              <PrivateRoute path="/dashboard" component={Dashboard} />
+              <PrivateRoute path="/product" component={ProductList} />
+            </Switch>
+          </div>
         </div>
-
       </Router>
     );
   }

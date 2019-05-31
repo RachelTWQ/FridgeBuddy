@@ -45,9 +45,12 @@ export default class Dashboard extends React.Component {
   render() {
     return (
       <>
+      <aside>
         <ProductForm
           listAllNotifications={this.listAllNotifications}
         />
+        </aside>
+        <main>
         <table className="class">
           <thead>
             <tr>
@@ -77,6 +80,7 @@ export default class Dashboard extends React.Component {
             ))}
           </tbody>
         </table>
+        </main>
       </>
     )
   }

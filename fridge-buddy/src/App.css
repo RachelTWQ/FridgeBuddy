@@ -23,6 +23,60 @@
   color: #61dafb;
 }
 
+.logoutButton {
+  border-radius: 5px;
+  border: none;
+  box-shadow: 1px 1px 0px 2px rgba (0,0,0,0.3);
+  background: rgb(141,217,252);
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.3rem;
+ }
+
+.nav_bar {
+  align-items: center;
+  background: darkcyan;
+  display: flex;
+  height: 4rem;
+  justify-content: space-around;
+}
+
+.nav_icon {
+  border-color: burlywood;
+  border-style: dotted;
+  border-radius: 10px;  
+  padding: 5px; 
+}
+
+.nav_icon_logout {
+  border-color: burlywood;
+  border-style: dotted;
+  border-radius: 10px;  
+  padding: 0 5px; 
+}
+
+.popup {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(0,0,0, 0.5);
+}
+
+.popup_inner {
+  position: absolute;
+  left: 25%;
+  right: 25%;
+  top: 25%;
+  bottom: 25%;
+  margin: auto;
+  background: white;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
