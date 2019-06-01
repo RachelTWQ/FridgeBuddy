@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Login({handleLogin}) {
 return(
-  <>
+  <div className="main_box">
     <h2>Login</h2>
     <form onSubmit={handleLogin}>
       <p>Email: </p><input name="email" type="text"/>
@@ -12,5 +12,5 @@ return(
     </form>
 
     <span>If you are new to Fridge Buddy, <Link to="/register">Register</Link> here please!</span>
-  </>
+  </div>
 )}

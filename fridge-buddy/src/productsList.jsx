@@ -29,6 +29,7 @@ class ProductsList extends Component {
 
   render() {
     return (
+      <div className="main_box">
       <table className="class">
         <thead>
           <tr>
@@ -51,6 +52,7 @@ class ProductsList extends Component {
           ))}
         </tbody>
         </table>
+      </div>
     )
   }
 }

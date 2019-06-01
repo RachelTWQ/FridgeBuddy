@@ -12,8 +12,7 @@ import axios from 'axios';
 
 function Home({user}) {
   return (
-    <div>
-      <h2>Home</h2>
+    <div className="home">
       <img src={img} alt="logo"/>
       {user.name !== undefined ? (<p>Welcome back, {user.name}</p>) : (<p>Welcome to Fridge Buddy</p>)}
     </div>

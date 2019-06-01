@@ -33,26 +33,64 @@
   padding: 0.3rem;
  }
 
-.nav_bar {
+.navbar {
   align-items: center;
   background: darkcyan;
   display: flex;
-  height: 4rem;
+  height: 5rem;
   justify-content: space-around;
+  left: 0;
+  padding: 0 10px;
+  position: fixed;
+  right: 0;
+  top: 0;
 }
 
 .nav_icon {
+  background-color: rgb(141,217,252);
   border-color: burlywood;
   border-style: dotted;
   border-radius: 10px;  
   padding: 5px; 
+  transition: all 0.35s ease-in-out;
 }
 
 .nav_icon_logout {
+  background-color: rgb(141,217,252);
   border-color: burlywood;
   border-style: dotted;
   border-radius: 10px;  
   padding: 0 5px; 
+  transition: all 0.35s ease-in-out;
+}
+
+.nav_icon:hover, .nav_icon_logout:hover {
+  color: #003D66;
+  box-shadow:5px 7px 0px 0px #003D66;
+  transform: translate(-5px, -7px);
+}
+
+.home {
+  margin: 6rem 0 auto 0;
+}
+
+.main_box {
+  display: flex;
+  justify-content: space-between;
+  margin: 6rem 0 auto 0;
+}
+
+.main_box > aside {
+  flex: 3;
+  border-style: dotted;
+  border-color: royalblue; 
+  border-radius: 20px;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.main_box > main {
+  flex: 7;
 }
 
 .popup {

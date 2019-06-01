@@ -44,44 +44,44 @@ export default class Dashboard extends React.Component {
 
   render() {
     return (
-      <>
-      <aside>
-        <ProductForm
-          listAllNotifications={this.listAllNotifications}
-        />
+      <div className="main_box">
+        <aside>
+          <ProductForm
+            listAllNotifications={this.listAllNotifications}
+          />
         </aside>
         <main>
-        <table className="class">
-          <thead>
-            <tr>
-              <th className="col-sm-2 text-center table-data-head">Name</th>
-              <th className="col-sm-3 text-center table-data-head">Product Name</th>
-              <th className="col-sm-2 text-center table-data-head">Category</th>
-              <th className="col-sm-3 text-center table-data-head">Entry Date</th>
-              <th className="col-sm-2 text-center table-data-head">Expiry Date</th>
-              <th className="col-sm-2 text-center table-data-head">Note</th>
-              <th className="col-sm-2 text-center table-data-head">Edit</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.notifications.map(notification => (
-              <NotificationItem
-                key={notification.notificationId}
-                notificationId={notification.notificationId}
-                username={notification.name}
-                entry={notification.entryDate}
-                exp={notification.expiryDateString}
-                expDate={notification.expiryDate}
-                note={notification.note}
-                productName={notification.productName}
-                category={notification.category}
-                updateFinished={this.updateFinished}
-              />
-            ))}
-          </tbody>
-        </table>
+          <table className="class">
+            <thead>
+              <tr>
+                <th className="col-sm-2 text-center table-data-head">Name</th>
+                <th className="col-sm-3 text-center table-data-head">Product Name</th>
+                <th className="col-sm-2 text-center table-data-head">Category</th>
+                <th className="col-sm-3 text-center table-data-head">Entry Date</th>
+                <th className="col-sm-2 text-center table-data-head">Expiry Date</th>
+                <th className="col-sm-2 text-center table-data-head">Note</th>
+                <th className="col-sm-2 text-center table-data-head">Edit</th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.notifications.map(notification => (
+                <NotificationItem
+                  key={notification.notificationId}
+                  notificationId={notification.notificationId}
+                  username={notification.name}
+                  entry={notification.entryDate}
+                  exp={notification.expiryDateString}
+                  expDate={notification.expiryDate}
+                  note={notification.note}
+                  productName={notification.productName}
+                  category={notification.category}
+                  updateFinished={this.updateFinished}
+                />
+              ))}
+            </tbody>
+          </table>
         </main>
-      </>
+      </div>
     )
   }
 }

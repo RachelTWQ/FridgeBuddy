@@ -45,7 +45,7 @@ export default class NavBar extends React.Component {
   render() {
     const { isLoggedIn } = this.props;
     return (
-      <div className='nav_bar'>
+      <div className='navbar'>
         {this.renderPublic()}
         {isLoggedIn ? this.renderPrivate() : null}
       </div>

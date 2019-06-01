@@ -82,11 +82,13 @@ class ProductForm extends Component {
   render() {
     return (
       <>
-          <p>Barcode: <input name="barcode" value={this.state.Barcode || ''} type="text" onBlur={this.barcodeSearch} onChange={(e) => this.setState({Barcode: e.target.value})} /></p>
-          <p>Product Name: <input name="productName" value={this.state.ProductName|| ''} type="text" onChange={(e) => this.setState({ProductName: e.target.value})} /></p>
-          <p>Category: <input name="category" value={this.state.Category || ''} type="text" onChange={(e) => this.setState({Category: e.target.value})} /></p>
-          <p>Reserved Days: <input name="reservedDays" value={this.state.ReservedDays || ''} type="number" min="0" onChange={(e) => this.setState({ReservedDays: e.target.value})}/></p>
-          <p>Note: <input name="note" value={this.state.Note || ''} type="text" onChange={(e) => this.setState({Note: e.target.value})}/></p>
+          <p>Barcode: </p><input name="barcode" value={this.state.Barcode || ''} type="text" onBlur={this.barcodeSearch} onChange={(e) => this.setState({Barcode: e.target.value})} />
+          <p>Product Name: </p><input name="productName" value={this.state.ProductName|| ''} type="text" onChange={(e) => this.setState({ProductName: e.target.value})} />
+          <p>Category: </p><input name="category" value={this.state.Category || ''} type="text" onChange={(e) => this.setState({Category: e.target.value})} />
+          <p>Reserved Days: </p><input name="reservedDays" value={this.state.ReservedDays || ''} type="number" min="0" onChange={(e) => this.setState({ReservedDays: e.target.value})}/>
+          <p>Note: </p><input name="note" value={this.state.Note || ''} type="text" onChange={(e) => this.setState({Note: e.target.value})}/>
+          <br/>
+          <br/>
           <button onClick={this.handleSubmit}>Submit</button>
       </>
     )
