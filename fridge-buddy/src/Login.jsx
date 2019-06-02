@@ -3,14 +3,16 @@ import { Link } from "react-router-dom";
 
 export default function Login({handleLogin}) {
 return(
-  <div className="main_box">
-    <h2>Login</h2>
+  <div className="main-box">
+    <main className="form-style">
+    <h1>Login</h1>
     <form onSubmit={handleLogin}>
-      <p>Email: </p><input name="email" type="text"/>
-      <p>Password: </p><input name="password" type="password"/>
-      <button>Login</button>
+      <input name="email" type="email" placeholder="Email"/>
+      <input name="password" type="password" placeholder="Password"/>
+      <input type="submit" value="Login" />
     </form>
 
-    <span>If you are new to Fridge Buddy, <Link to="/register">Register</Link> here please!</span>
+    <p>If you are new to Fridge Buddy, <Link to="/register">Register</Link> here please!</p>
+    </main>
   </div>
 )}

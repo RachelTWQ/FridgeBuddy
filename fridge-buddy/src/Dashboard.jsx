@@ -44,7 +44,7 @@ export default class Dashboard extends React.Component {
 
   render() {
     return (
-      <div className="main_box">
+      <div className="dashboard">
         <aside>
           <ProductForm
             listAllNotifications={this.listAllNotifications}

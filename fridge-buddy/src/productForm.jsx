@@ -81,16 +81,15 @@ class ProductForm extends Component {
 
   render() {
     return (
-      <>
-          <p>Barcode: </p><input name="barcode" value={this.state.Barcode || ''} type="text" onBlur={this.barcodeSearch} onChange={(e) => this.setState({Barcode: e.target.value})} />
-          <p>Product Name: </p><input name="productName" value={this.state.ProductName|| ''} type="text" onChange={(e) => this.setState({ProductName: e.target.value})} />
-          <p>Category: </p><input name="category" value={this.state.Category || ''} type="text" onChange={(e) => this.setState({Category: e.target.value})} />
-          <p>Reserved Days: </p><input name="reservedDays" value={this.state.ReservedDays || ''} type="number" min="0" onChange={(e) => this.setState({ReservedDays: e.target.value})}/>
-          <p>Note: </p><input name="note" value={this.state.Note || ''} type="text" onChange={(e) => this.setState({Note: e.target.value})}/>
-          <br/>
-          <br/>
-          <button onClick={this.handleSubmit}>Submit</button>
-      </>
+      <div className="form-style">
+        <input placeholder="Barcode" name="barcode" value={this.state.Barcode || ''} type="text" onBlur={this.barcodeSearch} onChange={(e) => this.setState({Barcode: e.target.value})} />
+        <input placeholder="Product Name" name="productName" value={this.state.ProductName|| ''} type="text" onChange={(e) => this.setState({ProductName: e.target.value})} />
+        <input placeholder="Category" name="category" value={this.state.Category || ''} type="text" onChange={(e) => this.setState({Category: e.target.value})} />
+        <input placeholder="Reserved Days" name="reservedDays" value={this.state.ReservedDays || ''} type="number" min="0" onChange={(e) => this.setState({ReservedDays: e.target.value})}/>
+        <textarea placeholder="Note" name="note" value={this.state.Note || ''} type="text" onChange={(e) => this.setState({Note: e.target.value})}/>
+
+        <input type="button" value="Submit" onClick={this.handleSubmit}/>
+      </div>
     )
   }
 }

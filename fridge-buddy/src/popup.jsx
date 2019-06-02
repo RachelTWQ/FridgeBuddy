@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './style/popup.css';
 
 export default class Popup extends Component {
   // add css to see if it will change the format
@@ -33,15 +34,17 @@ export default class Popup extends Component {
       productName: '',
       category: '',
     });
+    this.props.closePopup()
   }
   render() {
     return (
       <td className='popup'>
         <div className='popup_inner'>
-          <p>Product Name: <input name="productName" value={this.state.productName || ''} type="text" onChange={(e) => this.setState({ productName: e.target.value })} /></p>
-          <p>Category: <input name="category" value={this.state.category || ''} type="text" onChange={(e) => this.setState({ category: e.target.value })} /></p>
-          <button onClick={this.handleNewProductSubmit}>save</button>
-          <button onClick={this.props.closePopup}>Done</button>
+          <button onClick={this.props.closePopup}>X</button>
+          <h1>Edit Product</h1>
+          <input placeholder="Product Name" name="productName" value={this.state.productName || ''} type="text" onChange={(e) => this.setState({ productName: e.target.value })} />
+          <input placeholder="Category" name="category" value={this.state.category || ''} type="text" onChange={(e) => this.setState({ category: e.target.value })} />
+          <input type="button" value="Save" onClick={this.handleNewProductSubmit} />
         </div>
       </td>
     );

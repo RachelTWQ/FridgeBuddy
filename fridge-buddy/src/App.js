@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import './App.css';
+import './style/navbar.css';
 import img from './LogoMakr_4MSdTX.png';
 import NavBar from './NavBar.jsx';
 import Login from './Login.jsx';
@@ -12,7 +13,7 @@ import axios from 'axios';
 
 function Home({user}) {
   return (
-    <div className="home">
+    <div className="main-box">
       <img src={img} alt="logo"/>
       {user.name !== undefined ? (<p>Welcome back, {user.name}</p>) : (<p>Welcome to Fridge Buddy</p>)}
     </div>
