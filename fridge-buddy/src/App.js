@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import './App.css';
 import './style/navbar.css';
+import './style/formstyle.css';
+import './style/tablestyle.css';
 import img from './LogoMakr_4MSdTX.png';
 import NavBar from './NavBar.jsx';
 import Login from './Login.jsx';

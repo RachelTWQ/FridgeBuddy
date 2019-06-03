@@ -50,17 +50,17 @@ export default class Dashboard extends React.Component {
             listAllNotifications={this.listAllNotifications}
           />
         </aside>
-        <main>
-          <table className="class">
+        <main className="container">
+          <table className="responsive-table">
             <thead>
               <tr>
-                <th className="col-sm-2 text-center table-data-head">Name</th>
-                <th className="col-sm-3 text-center table-data-head">Product Name</th>
-                <th className="col-sm-2 text-center table-data-head">Category</th>
-                <th className="col-sm-3 text-center table-data-head">Entry Date</th>
-                <th className="col-sm-2 text-center table-data-head">Expiry Date</th>
-                <th className="col-sm-2 text-center table-data-head">Note</th>
-                <th className="col-sm-2 text-center table-data-head">Edit</th>
+                <th scope="col">Product Name</th>
+                {/* <th scope="col">Owner</th> */}
+                <th scope="col">Category</th>
+                <th scope="col">Entry Date</th>
+                <th scope="col">Remind Date</th>
+                <th scope="col">Note</th>
+                <th scope="col">Edit</th>
               </tr>
             </thead>
             <tbody>
@@ -68,7 +68,7 @@ export default class Dashboard extends React.Component {
                 <NotificationItem
                   key={notification.notificationId}
                   notificationId={notification.notificationId}
-                  username={notification.name}
+                  // username={notification.name}
                   entry={notification.entryDate}
                   exp={notification.expiryDateString}
                   expDate={notification.expiryDate}

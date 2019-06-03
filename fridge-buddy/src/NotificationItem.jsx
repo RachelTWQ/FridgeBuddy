@@ -8,26 +8,26 @@ export default class NotificationItem extends React.Component {
     
     return (
       <tr style={ expStyle }>
-        <td>
-          {this.props.username}
-        </td>
-        <td>
+        <th scope="row">
           {this.props.productName}
-        </td>
-        <td>
+        </th>
+        {/* <td data-title="Owner">
+          {this.props.username}
+        </td> */}
+        <td data-title="Category">
           {this.props.category}
         </td>
-        <td>
+        <td data-title="Entry Date">
           {this.props.entry}
         </td>
-        <td>
+        <td data-title="Remind Date">
           {this.props.exp}
         </td>
-        <td>
+        <td data-title="Note">
           {this.props.note}
         </td>
-        <td>
-          <button onClick={() => this.props.updateFinished(this.props.notificationId)}>Finished</button>
+        <td data-title="Edit">
+          <button className="button" onClick={() => this.props.updateFinished(this.props.notificationId)}>Finished</button>
         </td>
       </tr>
     )

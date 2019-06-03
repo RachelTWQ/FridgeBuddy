@@ -82,6 +82,7 @@ class ProductForm extends Component {
   render() {
     return (
       <div className="form-style">
+        <h1>What's new to your fridge?</h1>
         <input placeholder="Barcode" name="barcode" value={this.state.Barcode || ''} type="text" onBlur={this.barcodeSearch} onChange={(e) => this.setState({Barcode: e.target.value})} />
         <input placeholder="Product Name" name="productName" value={this.state.ProductName|| ''} type="text" onChange={(e) => this.setState({ProductName: e.target.value})} />
         <input placeholder="Category" name="category" value={this.state.Category || ''} type="text" onChange={(e) => this.setState({Category: e.target.value})} />

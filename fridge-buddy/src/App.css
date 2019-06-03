@@ -27,6 +27,11 @@
   margin: 6rem 0 auto 0;
 }
 
+.main-box > main {
+  margin: 1rem;
+  padding: 1rem;
+}
+
 .dashboard {
   display: flex;
   justify-content: space-between;
@@ -43,75 +48,6 @@
   flex: 7;
   margin: 1rem;
   padding: 1rem;
-}
-
-.form-style {
-	font: 95% Arial, Helvetica, sans-serif;
-	max-width: 400px;
-	margin: 10px auto;
-	padding: 16px;
-	background: #F7F7F7;
-}
-
-.form-style h1 {
-  background:#43D1AF;
-  padding: 20px 0;
-  font-size: 140%;
-  font-weight: 300;
-  text-align: center;
-  color: #fff;
-  margin: -16px -16px 16px -16px;
-}
-
-.form-style input[type="text"],
-.form-style input[type="email"],
-.form-style input[type="password"],
-.form-style input[type="number"],
-.form-style input[type="tel"],
-.form-style textarea {
-  transition: all 0.30s ease-in-out;
-  outline: none;
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  width: 100%;
-  background: #fff;
-  margin-bottom: 4%;
-  border: 1px solid #ccc;
-  padding: 3%;
-  color: #555;
-  font: 95% Arial, Helvetica, sans-serif;
-}
-
-.form-style input[type="text"]:focus,
-.form-style input[type="email"]:focus,
-.form-style input[type="password"]:focus,
-.form-style input[type="number"]:focus,
-.form-style input[type="tel"]:focus,
-.form-style textarea:focus {
-  box-shadow: 0 0 5px #43D1AF;
-  padding: 3%;
-  border: 1px solid #43D1AF;
-}
-
-.form-style input[type="button"],
-.form-style input[type="submit"] {
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  width: 100%;
-  padding: 3%;
-  background: #43D1AF;
-  border-bottom: 2px solid #30C29E;
-  border-top-style: none;
-  border-right-style: none;
-  border-left-style: none;	
-  color: #fff;
-}
-
-.form-style input[type="button"]:hover,
-.form-style input[type="submit"]:hover {
-  background: #2EBC99;
 }
 
 @keyframes App-logo-spin {

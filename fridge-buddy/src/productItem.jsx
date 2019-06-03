@@ -22,19 +22,20 @@ class ProductItem extends Component {
     return (
       <>
         <tr>
-          <td>
+          <th scope="row">
             {this.props.barcode}
-          </td>
-          <td>
+          </th>
+          <td data-title="Product Name">
             {this.props.productName}
           </td>
-          <td>
+          <td data-title="Category">
             {this.props.category}
           </td>
-          <td>
-            <button onClick={this.togglePopup}>Select</button>
+          <td data-title="Edit">
+            <button className="button" onClick={this.togglePopup}>Select</button>
           </td>
         </tr>
+        <tr></tr>
         <tr>
           {this.state.showPopup ?
             <Popup

@@ -29,14 +29,15 @@ class ProductsList extends Component {
 
   render() {
     return (
-      <div className="main_box">
-      <table className="class">
+      <div className="main-box">
+        <main className="container">
+      <table className="responsive-table">
         <thead>
           <tr>
-            <th className="col-sm-2 text-center table-data-head">Barcode</th>
-            <th className="col-sm-3 text-center table-data-head">Product Name</th>
-            <th className="col-sm-3 text-center table-data-head">Category</th>
-            <th className="col-sm-3 text-center table-data-head">Edit</th>
+            <th scope="col">Barcode</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Category</th>
+            <th scope="col">Edit</th>
           </tr>
         </thead>
         <tbody>
@@ -52,6 +53,7 @@ class ProductsList extends Component {
           ))}
         </tbody>
         </table>
+        </main>
       </div>
     )
   }
