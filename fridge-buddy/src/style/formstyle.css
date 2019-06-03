@@ -15,7 +15,7 @@
   box-shadow: 1px 8px 5px rgba(0,0,0,.2);
 }
 .form-style h1 {
-  background:darkcyan;
+  background:#2C7873;
   padding: 20px 0;
   font-size: 140%;
   font-weight: 300;
@@ -62,7 +62,7 @@
   -moz-box-sizing: border-box;
   width: 100%;
   padding: 3%;
-  background: darkcyan;
+  background: #2C7873;
   border-bottom: 2px solid #007D7D;
   border-top-style: none;
   border-right-style: none;
@@ -73,6 +73,6 @@
 
 .form-style input[type="button"]:hover,
 .form-style input[type="submit"]:hover {
-  background: #009C9C;
+  background: #07575B;
   text-transform: uppercase;
 }

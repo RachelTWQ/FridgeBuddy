@@ -7,7 +7,7 @@ export default class NotificationItem extends React.Component {
     const expStyle = { color: new Date(this.props.expDate) < new Date() && "red"};
     
     return (
-      <tr style={ expStyle }>
+      <tr>
         <th scope="row">
           {this.props.productName}
         </th>
@@ -20,7 +20,7 @@ export default class NotificationItem extends React.Component {
         <td data-title="Entry Date">
           {this.props.entry}
         </td>
-        <td data-title="Remind Date">
+        <td style={ expStyle } data-title="Remind Date">
           {this.props.exp}
         </td>
         <td data-title="Note">
