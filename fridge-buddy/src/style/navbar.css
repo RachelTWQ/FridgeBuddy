@@ -8,22 +8,36 @@
     padding: 0.3rem;
    }
   
+  .navbar > img {
+    max-height: 4.5rem;
+    max-width: 4.5rem;
+    background: #ffffff;
+    margin-left: 10px;
+  }
+
   .navbar {
     align-items: center;
-    background-color: #31A9B8;
-    background-image: linear-gradient(141deg, #31A9B8 0%, #258039 45%, #F5BE41 65%, #F69454 90%);
+    background-color: #258039;
+    background-image: linear-gradient(141deg, #31A9B8 0%, #258039 51%, #Faaf08 85%, #Faa08f 95%);
     
     opacity: 0.95;
     display: flex;
     height: 5rem;
-    justify-content: space-around;
+    justify-content: space-between;
     left: 0;
     padding: 0 10px;
     position: fixed;
     right: 0;
     top: 0;
   }
-  
+
+  .navbar-in {
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    flex-grow: 1;
+  }
+
   .nav_icon {
     background-color: #B9D8D7;
     border-color: burlywood;

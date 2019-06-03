@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import logo from './LogoMakr_3WFbaL.png';
 
 function Logout({ handleLogout }) {
   return (
@@ -46,8 +47,11 @@ export default class NavBar extends React.Component {
     const { isLoggedIn } = this.props;
     return (
       <div className='navbar'>
+        <img src={ logo } alt="logo"/>
+        <div className='navbar-in'>
         {this.renderPublic()}
         {isLoggedIn ? this.renderPrivate() : null}
+        </div>
       </div>
     )
   }

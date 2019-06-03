@@ -15,7 +15,7 @@
   box-shadow: 1px 8px 5px rgba(0,0,0,.2);
 }
 .form-style h1 {
-  background:#2C7873;
+  background: #1995AD;
   padding: 20px 0;
   font-size: 140%;
   font-weight: 300;
@@ -50,9 +50,9 @@
 .form-style input[type="number"]:focus,
 .form-style input[type="tel"]:focus,
 .form-style textarea:focus {
-  box-shadow: 0 0 5px #009C9C;
+  box-shadow: 0 0 5px #ACD0C0;
   padding: 3%;
-  border: 1px solid #009C9C;
+  border: 1px solid #ACD0C0;
 }
 
 .form-style input[type="button"],
@@ -62,17 +62,13 @@
   -moz-box-sizing: border-box;
   width: 100%;
   padding: 3%;
-  background: #2C7873;
-  border-bottom: 2px solid #007D7D;
-  border-top-style: none;
-  border-right-style: none;
-  border-left-style: none;	
+  background: #1995AD;
   color: #fff;
   font-size: 110% ;
 }
 
 .form-style input[type="button"]:hover,
 .form-style input[type="submit"]:hover {
-  background: #07575B;
+  background: #75B1A9;
   text-transform: uppercase;
 }

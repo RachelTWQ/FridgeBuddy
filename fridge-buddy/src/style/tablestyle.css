@@ -17,7 +17,7 @@
     border-radius: 5px;
     color: #fff;
     padding: 8px;
-    background-color: #6FB98F;
+    background-color: #A1BE95;
   }
 
   .container {
@@ -72,8 +72,8 @@
     }
   }
   .responsive-table thead th {
-    background-color: #357c7b;
-    border: 1px solid #357c7b;
+    background-color: #75B1A9;
+    border: 1px solid #75B1A9;
     font-weight: normal;
     text-align: center;
     color: white;
@@ -168,13 +168,13 @@
     }
   }
   .responsive-table tbody th[scope="row"] {
-    background-color: #357c7b;
+    background-color: #75B1A9;
     color: white;
   }
   @media (min-width: 30em) {
     .responsive-table tbody th[scope="row"] {
-      border-left: 1px solid #357c7b;
-      border-bottom: 1px solid #357c7b;
+      border-left: 1px solid #75B1A9;
+      border-bottom: 1px solid #75B1A9;
     }
   }
   @media (min-width: 48em) {
@@ -189,7 +189,7 @@
   }
   @media (min-width: 48em) {
     .responsive-table tbody td {
-      border-left: 1px solid #357c7b;
+      border-left: 1px solid #4D648D;
       border-bottom: 1px solid #357c7b;
       text-align: center;
     }
