@@ -41,6 +41,7 @@ namespace FinalTest.Controllers
                 response.ProductName = notification.Product.ProductName;
                 response.Category = notification.Product.Category;
                 response.Name = notification.User.Name;
+                response.Barcode = notification.Product.Barcode;
                 responses.Add(response);
             }
             return Ok(responses);
