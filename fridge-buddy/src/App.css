@@ -1,3 +1,10 @@
+body {
+  /* background-color: #C1C8E4;
+  background-image: radial-gradient(closest-side at 30%, #ffffff,#C1CBE4), radial-gradient(closest-side at 75%,#C1CBE4, #ffffff); */
+  background: url("./food.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
 .App {
   text-align: center;
 }

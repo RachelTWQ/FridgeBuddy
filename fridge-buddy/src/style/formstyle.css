@@ -16,7 +16,7 @@
   box-shadow: 1px 8px 5px rgba(0,0,0,.2);
 }
 .form-style h1 {
-  background: #1995AD;
+  background: #19A9AD;
   padding: 20px 0;
   font-size: 140%;
   font-weight: 300;
@@ -63,13 +63,13 @@
   -moz-box-sizing: border-box;
   width: 100%;
   padding: 3%;
-  background: #1995AD;
+  background: #19A9AD;
   color: #fff;
   font-size: 110% ;
 }
 
 .form-style input[type="button"]:hover,
 .form-style input[type="submit"]:hover {
-  background: #75B1A9;
+  background: #1995AD;
   text-transform: uppercase;
 }

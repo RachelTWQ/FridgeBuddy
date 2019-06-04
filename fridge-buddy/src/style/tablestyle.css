@@ -40,6 +40,7 @@
   
   .responsive-table {
     width: 100%;
+    background: white;
     margin-bottom: 1.5rem;
     border-spacing: 0;
   }
@@ -73,7 +74,7 @@
     }
   }
   .responsive-table thead th {
-    background-color: #75B1A9;
+    background-color: #19A9AD;
     border: 1px solid #75B1A9;
     font-weight: normal;
     text-align: center;

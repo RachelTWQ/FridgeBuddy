@@ -16,10 +16,10 @@ export default function Home({ user }) {
       <div className="slider-container">
       <div id="slider">
         <figure>
-          <img src={ img1 } alt="img1"/>
-          <img src={ img2 } alt="img2"/>
-          <img src={ img3 } alt="img3"/>
           <img src={ img4 } alt="img4"/>
+          <img src={ img3 } alt="img3"/>
+          <img src={ img2 } alt="img2"/>
+          <img src={ img1 } alt="img1"/>
           <img src={ img5 } alt="img5"/>
         </figure>
       </div>
