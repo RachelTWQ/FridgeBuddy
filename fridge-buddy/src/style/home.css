@@ -33,3 +33,9 @@ div#slider figure {
     font-size: 0;
     animation: 30s slidy infinite; 
 }
+
+article {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}

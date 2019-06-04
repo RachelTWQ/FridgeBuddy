@@ -9,7 +9,10 @@ import img5 from './img5.jpg';
 export default function Home({ user }) {
   return (
     <div className="main-box">
-      {user.name !== undefined ? (<p>Welcome back, {user.name}</p>) : (<p>Welcome to Fridge Buddy</p>)}
+        <article>
+            {user.name !== undefined ? (<h2>Welcome back, {user.name}. Fridge Buddy, no more waste!</h2>) : (<h2>Welcome to Fridge Buddy. Fridge Buddy, no more waste!</h2>)}
+        </article>
+      
       <div className="slider-container">
       <div id="slider">
         <figure>

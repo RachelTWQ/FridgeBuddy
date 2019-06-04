@@ -52,7 +52,6 @@
 @media all and (max-width: 64rem) {
   .dashboard {
     flex-direction: column;
-    
   }
 }
 
