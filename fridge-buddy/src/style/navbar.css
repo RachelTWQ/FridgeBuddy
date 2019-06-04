@@ -3,6 +3,7 @@
     border: none;
     box-shadow: 1px 1px 0px 2px rgba (0,0,0,0.3);
     background: #B9D8D7;
+    color: white;
     cursor: pointer;
     font-size: 1rem;
     padding: 0.3rem;
@@ -17,9 +18,8 @@
 
   .navbar {
     align-items: center;
-    background-color: #258039;
-    background-image: linear-gradient(141deg, #31A9B8 0%, #258039 51%, #Faaf08 85%, #Faa08f 95%);
-    
+    background: #80BD9E;
+    z-index: 99999;
     opacity: 0.95;
     display: flex;
     height: 5rem;

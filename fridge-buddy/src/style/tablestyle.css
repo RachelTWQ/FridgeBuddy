@@ -26,7 +26,7 @@
     margin: 5% 3%;
   }
   
-  @media (min-width: 48rem) {
+  @media (min-width: 50rem) {
     .container {
       margin: 2%;
     }
@@ -34,7 +34,7 @@
   @media (min-width: 75rem) {
     .container {
       margin: 2em auto;
-      max-width: 75em;
+      max-width: 64rem;
     }
   }
   
@@ -43,7 +43,7 @@
     margin-bottom: 1.5rem;
     border-spacing: 0;
   }
-  @media (min-width: 48rem) {
+  @media (min-width: 50rem) {
     .responsive-table {
       font-size: .9rem;
     }
@@ -63,7 +63,7 @@
     width: 1px;
     overflow: hidden;
   }
-  @media (min-width: 48rem) {
+  @media (min-width: 50rem) {
     .responsive-table thead {
       position: relative;
       clip: auto;
@@ -91,7 +91,7 @@
     text-align: left;
     white-space: normal;
   }
-  @media (min-width: 48rem) {
+  @media (min-width: 50rem) {
     .responsive-table tr {
       display: table-row;
     }
@@ -107,7 +107,7 @@
       padding: .75rem .5rem;
     }
   }
-  @media (min-width: 48rem) {
+  @media (min-width: 50rem) {
     .responsive-table th,
     .responsive-table td {
       display: table-cell;
@@ -132,7 +132,7 @@
     font-weight: bold;
     text-align: center;
   }
-  @media (min-width: 48erm) {
+  @media (min-width: 50rem) {
     .responsive-table caption {
       font-size: 1.5rem;
     }
@@ -146,7 +146,7 @@
       font-size: .9rem;
     }
   }
-  @media (min-width: 48rem) {
+  @media (min-width: 50rem) {
     .responsive-table tbody {
       display: table-row-group;
     }
@@ -154,7 +154,7 @@
   .responsive-table tbody tr {
     margin-bottom: 1rem;
   }
-  @media (min-width: 48rem) {
+  @media (min-width: 50rem) {
     .responsive-table tbody tr {
       display: table-row;
       border-width: 1px;
@@ -163,7 +163,7 @@
   .responsive-table tbody tr:last-of-type {
     margin-bottom: 0;
   }
-  @media (min-width: 48rem) {
+  @media (min-width: 50rem) {
     .responsive-table tbody tr:nth-of-type(even) {
       background-color: rgba(94, 93, 82, 0.1);
     }
@@ -178,7 +178,7 @@
       border-bottom: 1px solid #75B1A9;
     }
   }
-  @media (min-width: 48rem) {
+  @media (min-width: 50rem) {
     .responsive-table tbody th[scope="row"] {
       background-color: transparent;
       color: #5e5d52;
@@ -188,14 +188,14 @@
   .responsive-table tbody td {
     text-align: right;
   }
-  @media (min-width: 48rem) {
+  @media (min-width: 50rem) {
     .responsive-table tbody td {
       border-left: 1px solid #4D648D;
       border-bottom: 1px solid #357c7b;
       text-align: center;
     }
   }
-  @media (min-width: 48rem) {
+  @media (min-width: 50rem) {
     .responsive-table tbody td:last-of-type {
       border-right: 1px solid #357c7b;
     }
@@ -214,7 +214,7 @@
       font-size: .9rem;
     }
   }
-  @media (min-width: 48rem) {
+  @media (min-width: 50rem) {
     .responsive-table tbody td[data-title]:before {
       content: none;
     }

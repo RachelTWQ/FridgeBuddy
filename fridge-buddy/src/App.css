@@ -49,6 +49,13 @@
   padding: 1rem;
 }
 
+@media all and (max-width: 64rem) {
+  .dashboard {
+    flex-direction: column;
+    
+  }
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

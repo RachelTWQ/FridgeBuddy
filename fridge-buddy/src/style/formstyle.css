@@ -1,6 +1,7 @@
 .form-style {
   font: 95% Arial, Helvetica, sans-serif;
-	max-width: 500px;
+  max-width: 400px;
+  margin: 0 auto;
 	padding: 16px;
   background: #F7F7F7;
   border-radius:8px;

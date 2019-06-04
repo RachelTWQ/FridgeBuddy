@@ -10,7 +10,7 @@ function Logout({ handleLogout }) {
 
 const linkStyle = { 
   textDecoration: 'none', 
-  color: 'black',  
+  color: 'white',  
   background: '#B9D8D7',
   borderRadius: '5px',
   border: 'none',
