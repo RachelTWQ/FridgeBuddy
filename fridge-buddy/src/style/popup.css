@@ -24,7 +24,7 @@
   }
   
   .popup_inner > h1 {
-    background:#43D1AF;
+    background:#19A9AD;
     padding: 20px 0;
     font-size: 140%;
     font-weight: 300;
@@ -57,9 +57,9 @@
   }
 
   .popup_inner > input[type="text"]:focus {
-    box-shadow: 0 0 5px #43D1AF;
+    box-shadow: 0 0 5px #ACD0C0;
     padding: 3%;
-    border: 1px solid #43D1AF;
+    border: 1px solid #ACD0C0;
   }
 
   .popup_inner > input[type="button"] {
@@ -68,8 +68,8 @@
     -moz-box-sizing: border-box;
     width: 100%;
     padding: 3%;
-    background: #43D1AF;
-    border-bottom: 2px solid #30C29E;
+    background: #19A9AD;
+    border-bottom: 2px solid #1995AD;
     border-top-style: none;
     border-right-style: none;
     border-left-style: none;	
@@ -77,5 +77,5 @@
   }
 
   .popup_inner > input[type="button"]:hover {
-    background: #2EBC99;
+    background: #1995AD;
   }
