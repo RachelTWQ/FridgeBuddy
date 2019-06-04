@@ -1,68 +1,40 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Fridge Buddy
 
-## Available Scripts
+Do you have the problem of forgetting what you have in your fridge and end up throwing your grocery away? Are you tired of cleaning up the fridge in your workplace of expired leftover? Fridge Buddy is here to help you save money by reminding you when foods will expire. Fridge Buddy is the easy way to create a refrigerator inventory list on your laptop, your tablet and your phone.
 
-In the project directory, you can run:
+## Tech Stack
+* [Create React App](https://github.com/facebook/create-react-app)
+* [react-native-init](https://www.npmjs.com/package/react-native-init)
+* [ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-2.2)
+* [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/)
+* [MS SQL Server](https://github.com/microsoft/mssql-docker)
+* [twilio](https://www.twilio.com/)
+* [docker](https://www.docker.com/) (optional)
+
+## Get Started
+
+### `npm install`
+
+Fork this repository, then clone your fork of this repository. Install all the dependencies from fridge-buddy folder for react and finalProject for react-native.
+
+
+### Running ASP.NET
+
+To run this, you will require both SQLSERVER and visual studio to run the application. If you are in windows, you can download SQL Server management studio and install a version of sql server express. If you are are on mac, you will require an instance of the sql server through a docker image. Instructions can be found [here](https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-2017&pivots=cs1-bash).
+
+Next, to run our asp.net application, you will require the visual studio to run the application. Simpily open FinalTest.sln in visual studio. Then hit the play button. By default, it will be connected to your default sql server instance on your localhost:1433.
 
 ### `npm start`
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Feature
 
-### `npm test`
+* User can register and log in to keep track of their inventory
+* User can record what they put in the fridge by typing or scanning through phone camera and customise when to receive text message reminder
+* User can scan barcode of the product for better entry experience
+* User can modify the product name and category of the products they scanned before
+* User can edit the product status before remind date to not receiving reminder
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Screenshot
