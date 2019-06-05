@@ -26,7 +26,7 @@ export default class NotificationItem extends React.Component {
         <td data-title="Note">
           {this.props.note}
         </td>
-        <td data-title="Edit">
+        <td data-title="Finished Eating?">
           <button className="button" onClick={() => this.props.updateFinished(this.props.notificationId)}>Finished</button>
         </td>
       </tr>

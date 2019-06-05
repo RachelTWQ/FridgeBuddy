@@ -60,7 +60,7 @@ export default class Dashboard extends React.Component {
                 <th scope="col">Entry Date</th>
                 <th scope="col">Remind Date</th>
                 <th scope="col">Note</th>
-                <th scope="col">Edit</th>
+                <th scope="col">Finished Eating?</th>
               </tr>
             </thead>
             <tbody>
