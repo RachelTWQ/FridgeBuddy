@@ -75,7 +75,7 @@
   }
   .responsive-table thead th {
     background-color: #258039;
-    border: 1px solid #75B1A9;
+    border: 1px solid #258039;
     font-weight: normal;
     text-align: center;
     color: white;
@@ -170,13 +170,13 @@
     }
   }
   .responsive-table tbody th[scope="row"] {
-    background-color: #75B1A9;
+    background-color: #258039;
     color: white;
   }
   @media (min-width: 30rem) {
     .responsive-table tbody th[scope="row"] {
-      border-left: 1px solid #75B1A9;
-      border-bottom: 1px solid #75B1A9;
+      border-left: 1px solid #258039;
+      border-bottom: 1px solid #258039;
     }
   }
   @media (min-width: 50rem) {
