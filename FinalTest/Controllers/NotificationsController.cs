@@ -54,14 +54,21 @@ namespace FinalTest.Controllers
             var productId = Guid.NewGuid();
             if (incomingProduct.newProduct)
             {
-                var newProduct = new Product();
-                newProduct.ProductId = productId;
-                newProduct.Barcode = incomingProduct.Barcode;
-                newProduct.Category = incomingProduct.Category;
-                newProduct.ProductName = incomingProduct.ProductName;
-                newProduct.UserId = userId;
+                if (_context.Products.Where(x => x.ProductName == incomingProduct.ProductName && x.UserId == userId).FirstOrDefault() == null)
+                {
+                    var newProduct = new Product();
+                    newProduct.ProductId = productId;
+                    newProduct.Barcode = incomingProduct.Barcode;
+                    newProduct.Category = incomingProduct.Category;
+                    newProduct.ProductName = incomingProduct.ProductName;
+                    newProduct.UserId = userId;
 
-                _context.Products.Add(newProduct);
+                    _context.Products.Add(newProduct);
+                }
+                else
+                {
+                    productId = _context.Products.Where(x => x.ProductName == incomingProduct.ProductName).First().ProductId;
+                }
             }
             else if (incomingProduct.productId != null)
             {
