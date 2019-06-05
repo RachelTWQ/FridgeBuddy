@@ -30,7 +30,7 @@ Fork this repository, then clone your fork of this repository. Install all the d
 
 ### Running ASP.NET
 
-To run this, you will require both SQLSERVER and visual studio to run the application. If you are in windows, you can download SQL Server management studio and install a version of sql server express. If you are are on mac, you will require an instance of the sql server through a docker image. Instructions can be found [here](https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-2017&pivots=cs1-bash).
+To run this, you will require both SQL SERVER and visual studio to run the application. If you are in windows, you can download SQL Server management studio and install a version of sql server express. If you are are on mac, you will require an instance of the sql server through a docker image. Instructions can be found [here](https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-2017&pivots=cs1-bash).
 
 Next, to run our asp.net application, you will require the visual studio to run the application. Simpily open FinalTest.sln in visual studio. Then hit the play button. By default, it will be connected to your default sql server instance on your localhost:1433.
 
