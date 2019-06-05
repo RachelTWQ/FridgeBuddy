@@ -46,3 +46,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 * User can edit the product status before remind date to not receiving reminder
 
 ## Screenshot
+![landing_page.png](https://github.com/RachelTWQ/FridgeBuddy/blob/master/screenshots/landing_page.png)
+
+![dashboard.png](https://github.com/RachelTWQ/FridgeBuddy/blob/master/screenshots/dashboard.png)
+
+![register.png](https://github.com/RachelTWQ/FridgeBuddy/blob/master/screenshots/register.png)
