@@ -8,7 +8,7 @@
     font-size: 1rem;
     padding: 0.3rem;
    }
-  
+
   .navbar > img {
     max-height: 4.5rem;
     max-width: 4.5rem;
@@ -61,3 +61,16 @@
     box-shadow:5px 7px 0px 0px #AF4425;
     transform: translate(-5px, -7px);
   }
+
+  @media screen and (max-width: 36rem) {
+    .navbar {
+      height: auto;
+      display: block;
+      padding: 5px
+    }
+
+    .navbar > img {
+      visibility: hidden;
+      height: 0;
+    }
+   }
