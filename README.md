@@ -1,23 +1,25 @@
 # Fridge Buddy
 
-Do you have the problem of forgetting what you have in your fridge and end up throwing your grocery away? Are you tired of cleaning up the fridge in your workplace of expired leftover? Fridge Buddy is here to help you save money by reminding you when foods will expire. Fridge Buddy is the easy way to create a refrigerator inventory list on your laptop, your tablet and your phone.
+Do you have the problem of forgetting what you have in your fridge and end up throwing your grocery away? Are you tired of cleaning up the fridge in your workplace of expired leftover? Fridge Buddy is here to help you save money by reminding you when foods will expire as you set. Fridge Buddy is the easy way to create a refrigerator inventory list on your laptop, your tablet and your phone.
 
 ## Tech Stack
 
 ![React_logo](https://www.shareicon.net/data/128x128/2016/07/08/117367_logo_512x512.png)
+![csharp_logo](https://itrainscotland.co.uk/images/c-sharp-logo.png)
+![dotnet_logo](https://rahulsahay.gallerycdn.vsassets.io/extensions/rahulsahay/csharp-aspnetcore/1.11.0/1559414167977/Microsoft.VisualStudio.Services.Icons.Default)
+![ef_core_logo](https://aspnetzero.com/assets/tools/ef.png)
+![sql_logo](https://chocolatey.org/content/packageimages/SQL2014-powershell.12.0.2000.8.png)
 ![docker_logo](https://fabianlee.org/wp-content/uploads/2017/03/docker-logo-150x150.png)
 ![twilio_logo](https://d1e2wseyxx8ugp.cloudfront.net/organization-logos/twilio.com)
-<br/>
-![sql_logo](https://www.znsoftech.com/assets/img/innerpage-banner/SQLServer-logo.png)
-![dotnet_logo](https://cdn-images-1.medium.com/max/800/1*oPEDLkxFxRbrzSBvDSt72g.png)
-![ef_core_logo](https://cdn-images-1.medium.com/max/800/1*SnZqHENpIMiEKsg999Q0DQ.png)
+
 * [Create React App](https://github.com/facebook/create-react-app)
 * [react-native-init](https://www.npmjs.com/package/react-native-init)
+* [C#](https://docs.microsoft.com/en-us/dotnet/csharp/)
 * [ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-2.2)
 * [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/)
 * [MS SQL Server](https://github.com/microsoft/mssql-docker)
-* [twilio](https://www.twilio.com/)
 * [docker](https://www.docker.com/)
+* [twilio](https://www.twilio.com/)
 
 ## Get Started
 
@@ -51,3 +53,11 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ![dashboard.png](https://github.com/RachelTWQ/FridgeBuddy/blob/master/screenshots/dashboard.png)
 
 ![register.png](https://github.com/RachelTWQ/FridgeBuddy/blob/master/screenshots/register.png)
+
+## Future Feature
+
+* Text regconition for actual expired day
+* Speech regconition
+* Nuitrition information
+* Recipe suggestion
+* JWT authentication
