@@ -18,7 +18,7 @@
 
   .navbar {
     align-items: center;
-    background: rgb(226, 223, 162);
+    background: rgba(226, 223, 162, .5);
     z-index: 99999;
     opacity: 0.95;
     display: flex;
