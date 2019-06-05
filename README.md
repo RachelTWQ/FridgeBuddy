@@ -17,7 +17,7 @@ Do you have the problem of forgetting what you have in your fridge and end up th
 * [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/)
 * [MS SQL Server](https://github.com/microsoft/mssql-docker)
 * [twilio](https://www.twilio.com/)
-* [docker](https://www.docker.com/) (optional)
+* [docker](https://www.docker.com/)
 
 ## Get Started
 
