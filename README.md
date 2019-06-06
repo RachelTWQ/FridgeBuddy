@@ -20,6 +20,8 @@ Do you have the problem of forgetting what you have in your fridge and end up th
 * [MS SQL Server](https://github.com/microsoft/mssql-docker)
 * [docker](https://www.docker.com/)
 * [twilio](https://www.twilio.com/)
+* [axios](https://github.com/axios/axios)
+* [serveo](https://serveo.net/)
 
 ## Get Started
 
@@ -56,6 +58,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Future Feature
 
+* Drop down list for category on web app
+* Location detail for each item
 * Text regconition for actual expired day
 * Speech regconition
 * Nuitrition information
