@@ -7,7 +7,7 @@ Do you have the problem of forgetting what you have in your fridge and end up th
 ![React_logo](https://www.shareicon.net/data/128x128/2016/07/08/117367_logo_512x512.png)
 ![csharp_logo](https://itrainscotland.co.uk/images/c-sharp-logo.png)
 ![dotnet_logo](https://rahulsahay.gallerycdn.vsassets.io/extensions/rahulsahay/csharp-aspnetcore/1.11.0/1559414167977/Microsoft.VisualStudio.Services.Icons.Default)
-![ef_core_logo](https://aspnetzero.com/assets/tools/ef.png)
+![ef_core_logo](https://www.i-programmer.info/images/stories/News/2017/aug/B/ef.jpg)
 ![sql_logo](https://chocolatey.org/content/packageimages/SQL2014-powershell.12.0.2000.8.png)
 ![docker_logo](https://fabianlee.org/wp-content/uploads/2017/03/docker-logo-150x150.png)
 ![twilio_logo](https://d1e2wseyxx8ugp.cloudfront.net/organization-logos/twilio.com)
